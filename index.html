@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>早間 央 | HAYAMA NAKABA</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff; --fg: #131313; --muted: #6d6d6d; --line: rgba(0,0,0,.08); --accent:#0a84ff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0b0c0f; --fg:#e9e9ec; --muted:#9a9aa2; --line: rgba(255,255,255,.12); --accent:#4da3ff; }
+    }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--fg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Sans","Noto Sans JP","Yu Gothic UI","YuGothic","Meiryo",sans-serif;
+      line-height:1.7; -webkit-text-size-adjust:100%;
+    }
+    .wrap { max-width:1100px; margin:56px auto; padding:0 20px; }
+    .grid { display:grid; grid-template-columns: 280px 1fr; gap:32px; }
+    @media (max-width:880px){ .grid{ grid-template-columns:1fr; } }
+
+    /* profile card */
+    aside {
+      border:1px solid var(--line); border-radius:14px; padding:18px 18px; align-self:start;
+      position:sticky; top:24px; background:transparent;
+    }
+    .name-ja { margin:0; font-size:22px; letter-spacing:.02em; }
+    .name-en { margin:2px 0 8px; font-size:15px; color:var(--muted); }
+    .role { font-size:12.5px; color:var(--muted); border-top:1px solid var(--line); padding-top:10px; margin-top:8px; }
+    .contact { margin:12px 0 0; font-size:14px; }
+    .contact a { color:var(--accent); text-decoration: underline; }
+
+    /* main content */
+    main { border-left:1px solid var(--line); padding-left:28px; }
+    @media (max-width:880px){ main{ border-left:none; padding-left:0; } }
+
+    section { margin:0 0 28px; padding-bottom:20px; border-bottom:1px solid var(--line); }
+    section:last-of-type { border-bottom:none; padding-bottom:0; }
+    h2 { margin:0 0 14px; font-size:18px; }
+    h3 { margin:18px 0 8px; font-size:16px; font-weight:600; }
+    ul { margin:0; padding-left:1.2em; }
+    li { margin:4px 0; }
+    a { color: var(--accent); text-decoration: underline; }
+    .small { font-size: 14px; color: var(--muted); }
+    footer { margin-top:36px; font-size:12.5px; color:var(--muted); }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="grid">
+      <!-- 独立した控えめプロフィール -->
+      <aside aria-label="profile">
+        <h1 class="name-ja">早間 央</h1>
+        <div class="name-en">HAYAMA NAKABA</div>
+        <div class="role">ハヤマ商会　代表</div>
+        <div class="contact">連絡先：<a href="mailto:n.hayama@gmail.com">n.hayama@gmail.com</a></div>
+
+        <div style="margin-top:14px">
+          <div class="small" style="margin-bottom:6px;">経歴</div>
+          <ul class="small" style="margin-top:0">
+            <li>鞆幼稚園</li>
+            <li>鞆小中学校</li>
+            <li>誠之館高校</li>
+            <li>東京大学</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- メイン（実績/活動） -->
+      <main>
+        <section>
+          <h2>個人作成 VBAマクロ・顧問実績</h2>
+
+          <h3>福山市井上病院　顧問</h3>
+          <ul>
+            <li>看護師シフト（<a href="#" target="_blank" rel="noopener">URL</a>）</li>
+            <li>様式9 作成（<a href="#" target="_blank" rel="noopener">URL</a>）</li>
+          </ul>
+
+          <h3>剛実鋼材株式会社　顧問（現任）</h3>
+          <ul><li><span class="small">※概要のみ掲載</span></li></ul>
+
+          <h3>学校法人　鞆こども園　理事</h3>
+          <ul>
+            <li>献立変更対応（<a href="#" target="_blank" rel="noopener">URL</a>）</li>
+          </ul>
+
+          <h3>株式会社　重政商店</h3>
+          <ul>
+            <li>受注発注整理マクロ（非公開）</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>活動概要</h2>
+          <h3>東京での経歴</h3>
+          <ul class="small">
+            <li>会社経営・自己起業</li>
+            <li>(上場・非上場) 会社役員</li>
+            <li>海外起業、経営管理</li>
+            <li>中国／カンボジア／タイ／フィリピン／ベトナム</li>
+          </ul>
+
+          <h3>福山市での経歴</h3>
+          <ul class="small">
+            <li>医療法人・社会福祉法人・学校法人の顧問</li>
+            <li>製造業・商社などの顧問／海外進出支援</li>
+            <li>NPO法人の設立・運営</li>
+          </ul>
+        </section>
+
+        <footer>© HAYAMA NAKABA</footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
