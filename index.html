@@ -5,40 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>早間 央 | HAYAMA NAKABA</title>
 <style>
-  /* ===== Theme ===== */
   :root{
     color-scheme: light dark;
-    --bg: #0b0c0f;        /* base background */
-    --panel: rgba(255,255,255,.06);
-    --fg: #e9e9ec;
-    --muted:#a5a7af;
-    --line: rgba(255,255,255,.12);
-    --accent:#7bd6ff;     /* cyan */
-    --accent-2:#8fffbe;   /* mint */
-    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --bg:#0b0c0f; --panel:rgba(255,255,255,.06); --fg:#e9e9ec;
+    --muted:#a5a7af; --line:rgba(255,255,255,.12);
+    --accent:#7bd6ff; --accent-2:#8fffbe;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
   }
   @media (prefers-color-scheme: light){
-    :root{
-      --bg: #f7f8fb;
-      --panel: rgba(255,255,255,.9);
-      --fg: #121316;
-      --muted:#62656f;
-      --line: rgba(0,0,0,.08);
-      --accent:#0a84ff;
-      --accent-2:#3ddc97;
-      --shadow: 0 10px 24px rgba(0,0,0,.08);
-    }
+    :root{ --bg:#f7f8fb; --panel:rgba(255,255,255,.9); --fg:#121316;
+      --muted:#62656f; --line:rgba(0,0,0,.08);
+      --accent:#0a84ff; --accent-2:#3ddc97;
+      --shadow:0 10px 24px rgba(0,0,0,.08);}
   }
 
-  /* ===== Base ===== */
   html,body{
     margin:0; padding:0; background:var(--bg); color:var(--fg);
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
-                 "Hiragino Sans","Noto Sans JP","Yu Gothic UI","YuGothic","Meiryo",sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+      "Hiragino Sans","Noto Sans JP","Yu Gothic UI","YuGothic","Meiryo",sans-serif;
     line-height:1.7; -webkit-text-size-adjust:100%;
   }
-
-  /* Background: soft gradient + subtle dots */
+  /* soft gradient + subtle dots */
   body::before, body::after{
     content:""; position:fixed; inset:-20vmax; z-index:-2;
     background:
@@ -49,8 +36,7 @@
   }
   body::after{
     z-index:-1;
-    background-image:
-      radial-gradient(circle at 1px 1px, rgba(255,255,255,.08) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.08) 1px, transparent 0);
     background-size: 22px 22px;
     opacity:.25;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 85%);
@@ -58,169 +44,161 @@
 
   .wrap{ max-width:1100px; margin:64px auto; padding:0 20px; }
 
-  /* ===== Headline badge ===== */
-  .kicker{
-    display:inline-flex; gap:8px; align-items:center;
-    font-size:12px; letter-spacing:.06em; color:var(--muted);
-    text-transform:uppercase;
-    padding:8px 12px; border:1px solid var(--line); border-radius:999px;
-    backdrop-filter: blur(6px);
-    background: linear-gradient( to bottom right, rgba(123,214,255,.12), rgba(143,255,190,.10) );
-  }
-
-  /* ===== Cards ===== */
   .card{
     margin:22px 0; padding:22px 20px;
     border:1px solid var(--line); border-radius:14px;
-    background: linear-gradient( to bottom right, rgba(255,255,255,.04), rgba(255,255,255,.02) );
+    background: linear-gradient(to bottom right, rgba(255,255,255,.04), rgba(255,255,255,.02));
     box-shadow: var(--shadow);
     backdrop-filter: blur(6px);
   }
-  .card h2{ margin:0 0 10px; font-size:20px; letter-spacing:.01em; }
+  .card h2{ margin:0 0 10px; font-size:20px; font-weight:700; }
   .card h3{ margin:18px 0 8px; font-size:16px; font-weight:650; }
   .small{ font-size:14px; color:var(--muted); }
-  ul{ margin:0; padding-left:1.1em; }
-  li{ margin:6px 0; }
+  ul{ margin:0; padding-left:1.1em; } li{ margin:6px 0; }
 
-  /* ===== Link pills ===== */
+  .title{ display:flex; align-items:center; gap:10px; margin:0 0 10px; font-size:20px; font-weight:700; }
+  .title::before{ content:""; width:8px; height:20px; border-radius:6px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2)); box-shadow:0 4px 12px rgba(0,0,0,.2); }
+
   a{ color:var(--accent); }
   .pill{
-    --ring: transparent;
     display:inline-flex; align-items:center; gap:.5em;
-    padding:7px 12px; border-radius:999px;
-    border:1px solid var(--line);
+    padding:7px 12px; border-radius:999px; border:1px solid var(--line);
     text-decoration:none; font-size:13px;
-    background: linear-gradient( to bottom, rgba(255,255,255,.06), rgba(255,255,255,0) );
+    background: linear-gradient(to bottom, rgba(255,255,255,.06), rgba(255,255,255,0));
     transition: transform .15s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
   }
-  .pill:hover{
-    transform: translateY(-1px);
-    border-color: color-mix(in oklab, var(--accent) 60%, transparent);
-    background: linear-gradient( to bottom, rgba(255,255,255,.10), rgba(255,255,255,.02) );
-    box-shadow: 0 6px 22px rgba(0,0,0,.18), 0 0 0 6px var(--ring);
-  }
-  .pill--accent{ --ring: color-mix(in oklab, var(--accent) 18%, transparent); }
-  .pill--mint{ --ring: color-mix(in oklab, var(--accent-2) 18%, transparent); }
+  .pill:hover{ transform: translateY(-1px); }
 
-  /* ===== Section titles with accent bar ===== */
-  .title{
-    display:flex; align-items:center; gap:10px; margin:0 0 10px;
-    font-size:20px; font-weight:700;
-  }
-  .title::before{
-    content:""; width:8px; height:20px; border-radius:6px;
-    background: linear-gradient(180deg, var(--accent), var(--accent-2));
-    box-shadow:0 4px 12px rgba(0,0,0,.2);
-  }
-
-  /* ===== Profile (kept subtle, at bottom) ===== */
   .profile{
     margin-top:32px; padding:18px 16px;
     border:1px solid var(--line); border-radius:14px;
-    background: linear-gradient( to bottom right, rgba(255,255,255,.03), rgba(255,255,255,.01) );
+    background: linear-gradient(to bottom right, rgba(255,255,255,.03), rgba(255,255,255,.01));
     color:var(--muted);
   }
   .profile .name-ja{ margin:0; font-size:18px; color:var(--fg); font-weight:700; }
   .profile .name-en{ margin:2px 0 6px; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; }
   .profile .role{ font-size:12.5px; border-top:1px solid var(--line); padding-top:8px; margin-top:6px; }
   .profile .contact{ margin-top:8px; font-size:13px; }
-  .profile a{ color:var(--accent); }
-
-  /* ===== Footer ===== */
   footer{ margin-top:28px; font-size:12.5px; color:var(--muted); text-align:center; }
 
-  /* ===== Utilities ===== */
-  .stack{ display:flex; flex-wrap:wrap; gap:10px; }
-  .sp-between{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
-  section{ margin:0 0 26px; padding-bottom:16px; border-bottom:1px dashed var(--line); }
-  section:last-of-type{ border-bottom:none; padding-bottom:0; }
+  /* divider label */
+  .divider{
+    margin:16px 0 8px; font-size:12.5px; color:var(--muted);
+    display:inline-block; padding:4px 8px; border:1px dashed var(--line); border-radius:999px;
+  }
 
-  /* ===== JP/EN small secondary text ===== */
-  .en{ font-size:13px; color:var(--muted); margin-left:4px; display:block; }
+  /* ===== English visibility (more prominent than before) ===== */
+  .en{
+    font-size:15px;
+    color:color-mix(in srgb, var(--fg) 80%, var(--muted) 20%);
+    display:block;
+    margin-left:4px;
+  }
+  .card h2 .en, .card h3 .en{
+    display:inline;
+    margin-left:8px;
+    font-weight:600;
+    color:var(--accent);
+  }
 
-  /* ===== Mobile tweaks ===== */
   @media (max-width:640px){
     .wrap{ margin:48px auto; }
     .card{ padding:18px 16px; }
     .pill{ padding:7px 10px; }
-  }
-
-  /* ===== Reduced motion ===== */
-  @media (prefers-reduced-motion: reduce){
-    *{ transition:none !important; }
   }
 </style>
 </head>
 <body>
   <div class="wrap">
 
-    <!-- header kicker -->
-    <div class="sp-between" style="margin-bottom:12px;">
-      <span class="kicker">早間　央 (Hayama Nakaba) —Profile & Works</span>
-    </div>
-
-    <!-- 実績/活動 -->
+    <!-- 活動理念 / Philosophy -->
     <section class="card">
-      <h2 class="title">個人作成 VBAマクロ・顧問先・石井町の記録
-        <span class="en">Personal VBA Macros / Advisory Clients / Local Records</span>
-      </h2>
-      <p class="small">各社のICT化支援は「本業の経営相談」から派生した取り組みです。
-        <span class="en">ICT support for companies stems from my core business consulting.</span>
+      <h2 class="title">近年の活動理念 <span class="en">Recent Activities & Philosophy</span></h2>
+      <p class="small">
+        2017年にUターンして、個人事業者として企業のアドバイザーや顧問業をしています。
+        <span class="en">Since returning to Fukuyama in 2017, I have worked as an independent advisor and corporate consultant.</span><br>
+        ・地域に密着した企業のフォローや地元ボランティアに取り組み、経済活動は東京で区切りをつけ、地元福山では地域貢献と個人生活を大切にしています。
+        <span class="en">I focus on supporting local businesses and volunteering. I consider my intensive economic activities to have concluded in Tokyo; in Fukuyama I prioritize community contributions and personal life.</span><br>
+        ・組織管理、雇用や社員教育、新規事業や海外進出のフォローをしています。
+        <span class="en">I advise on organization management, hiring and training, new ventures, and overseas expansion.</span><br>
+        ・ICT化の相談も多く、VBAマクロを活用した業務改善をご提案しています。
+        <span class="en">I also handle many ICT consultations and propose process improvements using VBA macros.</span>
       </p>
+    </section>
 
-      <h3>医療法人常仁会　顧問（過去）<span class="en">Medical Corporation Jojinkai — Advisor (Past)</span></h3>
-      <ul><li><span class="small">※概要のみ掲載</span><span class="en">Overview only</span></li></ul>
+    <!-- 実績/活動（現任→過去） / Works -->
+    <section class="card">
+      <h2 class="title">顧問先・VBAマクロ・地域記録 <span class="en">Advisory Works & VBA Macro Achievements</span></h2>
 
-      <h3>福山市井上病院　顧問（過去）<span class="en">Fukuyama Inoue Hospital — Advisor (Past)</span></h3>
-      <ul>
-        <li>
-          看護師シフト <span class="en">Nurse Shift Scheduling</span>
-          <a class="pill pill--accent" href="https://youtu.be/7G9YAk_frzI" target="_blank" rel="noopener">説明動画 / Watch video</a>
-        </li>
-        <li>
-          様式9 作成 <span class="en">Form No.9 Preparation</span>
-          <a class="pill pill--mint" href="https://youtu.be/4zmZYih-Erk" target="_blank" rel="noopener">説明動画 / Watch video</a>
-        </li>
-      </ul>
+      <!-- 現任 -->
+      <span class="divider">現任（Current）<span class="en">Current Engagements</span></span>
 
       <h3>剛実鋼材株式会社　顧問（現任）<span class="en">Takemi Kouzai Co., Ltd. — Advisor (Present)</span></h3>
-      <ul><li><span class="small">※概要のみ掲載</span><span class="en">Overview only</span></li></ul>
+      <ul>
+        <li><span class="small">※概要のみ掲載</span><span class="en">Overview only</span></li>
+      </ul>
 
       <h3>学校法人鞆幼稚園　理事（現任）<span class="en">Tomo Kindergarten — Director (Present)</span></h3>
       <ul>
-        <li>
-          献立変更対応 <span class="en">Menu Change Support</span>
-          <a class="pill pill--accent" href="https://youtu.be/B06t2oRYU4g" target="_blank" rel="noopener">説明動画 / Watch video</a>
+        <li>献立変更対応 <span class="en">Menu Change Support</span>
+          <a class="pill" href="https://youtu.be/B06t2oRYU4g" target="_blank" rel="noopener">説明動画 / Watch video</a>
         </li>
       </ul>
 
       <h3>株式会社 重政商店　顧問（現任）<span class="en">Shigemasa Co., Ltd. — Advisor (Present)</span></h3>
-      <ul><li>受注発注整理マクロ（非公開）<span class="en">Order Management Macro (Private)</span></li></ul>
-
-      <h3>鞆町石井　2025秋祭りチョウサイ準備記録
-        <span class="en">Tomonoura Ishi'i — 2025 Autumn Festival "Chousai" Preparation</span>
-      </h3>
       <ul>
-        <li>
-          チョウサイ準備記録 <span class="en">Preparation Records</span>
-          <a class="pill pill--mint" href="https://youtu.be/yhQG1WksAUY" target="_blank" rel="noopener">説明動画 / Watch video</a>
+        <li>受注発注整理マクロ（非公開）<span class="en">Order Management Macro (Private)</span></li>
+      </ul>
+
+      <!-- 過去（辞任済） -->
+      <span class="divider">過去（辞任済） / Former (Resigned)<span class="en">Past Engagements (Resigned)</span></span>
+
+      <h3>ある病院での顧問（過去）<span class="en">Advisor for a Hospital (Past)</span></h3>
+      <ul>
+        <li>看護師シフト <span class="en">Nurse Shift Scheduling</span>
+          <a class="pill" href="https://youtu.be/7G9YAk_frzI" target="_blank" rel="noopener">説明動画 / Watch video</a>
+        </li>
+        <li>様式9 作成 <span class="en">Preparation of “Form No.9” (Ward Management)</span>
+          <a class="pill" href="https://youtu.be/4zmZYih-Erk" target="_blank" rel="noopener">説明動画 / Watch video</a>
+        </li>
+      </ul>
+
+      <h3>ある法人でのアドバイザリー（過去）<span class="en">Advisory for an Organization (Past)</span></h3>
+      <ul>
+        <li><span class="small">※概要のみ掲載</span><span class="en">Overview only</span></li>
+      </ul>
+
+      <!-- 地域活動 -->
+      <h3>地域活動 <span class="en">Local Activities</span></h3>
+      <ul>
+        <li>鞆町石井 2025秋祭りチョウサイ準備記録 <span class="en">Tomonoura Ishi'i — 2025 Autumn Festival “Chousai” Preparation</span>
+          <a class="pill" href="https://youtu.be/yhQG1WksAUY" target="_blank" rel="noopener">説明動画 / Watch video</a>
         </li>
       </ul>
     </section>
 
-    <!-- 本業 -->
+    <!-- 本業経営相談概要 / Main Business -->
     <section class="card">
       <h2 class="title">本業経営相談概要 <span class="en">Main Business: Management Consulting Overview</span></h2>
 
-      <h3>1997年〜 東京での経歴 <span class="en">From 1997 — Career in Tokyo</span></h3>
+      <h3>1997年〜 東京での経歴 <span class="en">From 1997 – Career in Tokyo</span></h3>
       <ul class="small">
         <li>会社経営・起業 <span class="en">Company management & entrepreneurship</span></li>
         <li>(上場・非上場) 会社役員 <span class="en">Board member (listed & unlisted companies)</span></li>
         <li>海外起業、経営管理 <span class="en">Overseas startups & corporate management</span></li>
         <li>中国／カンボジア／タイ <span class="en">China / Cambodia / Thailand</span></li>
       </ul>
+      <p class="small" style="margin-top:10px;">
+        追記：1名から起業し、日本と中国で約500名規模に拡大。学習塾、法律事務所、ITシステム構築、建設、M&Aサービサーなどを経営。上場ゴルフメーカーやインディーズ音楽CD流通会社にも参加。
+        <span class="en">Addendum: Started solo and expanded with partners to ~500 employees in Japan & China. Operated cram schools, a law office, IT systems firm, construction company, and an M&A servicer; also participated in management of a listed golf manufacturer and a music distribution company.</span><br>
+        朝8時から深夜1時まで働く日々が続き、30代は経営修業の毎日でした。多くの先輩経営者から助言をいただき、感謝しています。
+        <span class="en">Worked from 8 a.m. to around 1 a.m. for years—my 30s were a period of learning as a manager, with much gratitude for advice from senior executives.</span><br>
+        東京の会社が落ち着いた後、海外事業へ投資。中国大連のデータ会社、カンボジアのバッグ工場、ヤマハバイク販売店、タイでの法人設立など。現地語を学び、共感を大事にしてきました。
+        <span class="en">After stabilizing the Tokyo operations, I invested overseas: a data company in Dalian (China), a bag manufacturing plant in Cambodia, a Yamaha motorcycle dealership, and entity setup in Thailand. I made it a point to learn local languages and value empathy.</span>
+      </p>
 
-      <h3>2017年〜 故郷・福山市での経歴 <span class="en">From 2017 — Career in Fukuyama</span></h3>
+      <h3>2017年〜 故郷・福山市での経歴 <span class="en">From 2017 – Career in Fukuyama</span></h3>
       <ul class="small">
         <li>医療法人・社会福祉法人・学校法人の顧問
           <span class="en">Advisor to medical, social welfare, and educational corporations</span>
@@ -232,9 +210,32 @@
           <span class="en">Founded & managed a local shrine preservation NPO</span>
         </li>
       </ul>
+      <p class="small" style="margin-top:10px;">
+        追記：病院の依頼で看護シフトのVBAマクロを開発。半年で活用できるようになり、業務改善に貢献しました。以後、商社やこども園などでVBAを活用した改善を実施。
+        <span class="en">Addendum: At a hospital’s request, I developed a nurse-shift VBA macro and made it effective within six months. Since then, I have implemented Excel/VBA improvements for trading companies and kindergartens.</span><br>
+        ICT化が進む一方で現場リテラシー不足に直面し、導入には苦労しましたが、経営相談に技術支援を組み合わせる意義を実感。
+        <span class="en">While ICT was advancing, on-site literacy lagged; although introduction was challenging, combining management advice with technical support proved valuable.</span><br>
+        医療法人や学校法人のほか、製缶業の海外進出や流通業のIT構築相談も担当。地元神社の保全NPOを立ち上げ運営しました。
+        <span class="en">In addition to medical and educational corporations, I supported overseas expansion for a can manufacturer and IT buildouts for distributors. I also founded and managed an NPO for local shrine preservation.</span>
+      </p>
     </section>
 
-    <!-- 下部・控えめプロフィール -->
+    <!-- IT経歴 / IT Background -->
+    <section class="card">
+      <h2 class="title">IT関連の歩み <span class="en">IT Background</span></h2>
+      <p class="small">
+        20代からDOS/Windows/Macを使用、初期PCは自作でLinuxとWindowsのデュアルブート。
+        <span class="en">I have used DOS/Windows/Mac since my 20s; my early PCs were self-built with Linux/Windows dual-boot.</span><br>
+        1996年には実家にLinux＋sambaで家庭内LANを構築。
+        <span class="en">In 1996, I built a home LAN at my family home using Linux + Samba.</span><br>
+        海外出張が多く、最初のスマートフォンはPHSのソニー製。
+        <span class="en">I traveled overseas frequently; my first “smartphone” was a Sony PHS device.</span><br>
+        その後はBlackBerryやNokia NシリーズをSIM入替で利用（2006年ころ）。
+        <span class="en">Later, I used BlackBerry and Nokia N-series phones with SIM swaps (around 2006).</span>
+      </p>
+    </section>
+
+    <!-- プロフィール / Profile -->
     <aside class="profile" aria-label="profile">
       <h1 class="name-ja">早間 央</h1>
       <div class="name-en">HAYAMA NAKABA</div>
@@ -242,7 +243,6 @@
       <div class="contact">連絡先：<a href="mailto:n.hayama@gmail.com">n.hayama@gmail.com</a>
         <span class="en">Contact</span>
       </div>
-
       <div style="margin-top:10px">
         <div class="small" style="margin-bottom:6px;">学歴 <span class="en">Education</span></div>
         <ul class="small" style="margin-top:0">
@@ -255,7 +255,7 @@
       </div>
     </aside>
 
-    <footer>© HAYAMA NAKABA</footer>
+    <footer>© HAYAMA NAKABA <span class="en">All rights reserved.</span></footer>
   </div>
 </body>
 </html>
