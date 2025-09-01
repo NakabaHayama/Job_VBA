@@ -8,6 +8,7 @@
   :root{
     color-scheme: light dark;
     --bg:#0b0c0f; --panel:rgba(255,255,255,.06); --fg:#e9e9ec;
+  }
   body::before, body::after{
     content:""; position:fixed; inset:-20vmax; z-index:-2;
     background:
@@ -42,7 +43,21 @@
   .title::before{ content:""; width:8px; height:20px; border-radius:6px;
     background: linear-gradient(180deg, var(--accent), var(--accent-2)); box-shadow:0 4px 12px rgba(0,0,0,.2); }
 
-  a{ color:var(--accent); }
+  /* 強調したリンクスタイル */
+  a{ 
+  color:#4da3ff;             /* 薄めの青 */
+  background-color:rgba(255,255,255,.08); 
+  padding:2px 4px; 
+  border-radius:4px; 
+  text-decoration:none; 
+}
+a:hover{ 
+  background-color:rgba(255,255,255,.15); 
+  text-decoration:underline; 
+  color:#1a73e8;             /* hover時は少し濃い青 */
+}
+
+
   .pill{
     display:inline-flex; align-items:center; gap:.5em;
     padding:7px 12px; border-radius:999px; border:1px solid var(--line);
@@ -93,7 +108,7 @@
 <body>
   <div class="wrap">
 
-    <!-- 活動理念 / Philosophy -->
+    <!-- ===== 活動理念 / Philosophy ===== -->
     <section class="card">
       <h2 class="title">早間央（HAYAMA NAKABA）活動理念 <span class="en">Recent Activities & Philosophy</span></h2>
       <p class="small">
@@ -105,12 +120,10 @@
         <span class="en">I also handle many ICT consultations and propose process improvements using VBA macros.</span><br>
         ・地域企業の顧問や地元でのボランティア活動に取り組み、50歳を期に経済活動は一旦区切りをつけ、地元貢献と個人生活を大切にしています。
         <span class="en">I focus on supporting local businesses and volunteering. I consider my intensive economic activities to have concluded in Tokyo; in Fukuyama I prioritize community contributions and personal life.</span>
-
-
       </p>
     </section>
 
-    <!-- 実績/活動（現任→過去） / Works -->
+    <!-- ===== 実績/活動（現任→過去） / Works ===== -->
     <section class="card">
       <h2 class="title">顧問先・VBAマクロ・地域活動や記録 <span class="en">Advisory Works & VBA Macro Achievements</span></h2>
 
@@ -178,10 +191,8 @@
           <a class="pill" href="https://drive.google.com/file/d/1fCOB0UM5vpD37dycjqu9rlkabXepmSdA/view?usp=drive_link" target="_blank" rel="noopener">資料 / Document</a>
         </li>
       </ul>
-      
     </section>
-
-    <!-- 本業経営相談概要 / Main Business -->
+    <!-- ===== 本業経営相談概要 / Main Business ===== -->
     <section class="card">
       <h2 class="title">本業経営相談概要 <span class="en">Main Business: Management Consulting Overview</span></h2>
 
@@ -223,7 +234,7 @@
       </p>
     </section>
 
-    <!-- IT経歴 / IT Background -->
+    <!-- ===== IT経歴 / IT Background ===== -->
     <section class="card">
       <h2 class="title">IT関連の歩み <span class="en">IT Background</span></h2>
       <p class="small">
@@ -238,7 +249,7 @@
       </p>
     </section>
 
-    <!-- プロフィール / Profile -->
+        <!-- ===== プロフィール / Profile ===== -->
     <aside class="profile" aria-label="profile">
       <h1 class="name-ja">早間 央</h1>
       <div class="name-en">HAYAMA NAKABA</div>
@@ -258,7 +269,9 @@
       </div>
     </aside>
 
+    <!-- ===== フッター / Footer ===== -->
     <footer>© HAYAMA NAKABA <span class="en">All rights reserved.</span></footer>
   </div>
 </body>
 </html>
+
