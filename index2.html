@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Job_VBA - Sub Page</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 2rem; }
+  figure { display:inline-block; margin:0 1rem 1rem 0; text-align:center; }
+  img { max-width: 220px; height: auto; display:block; }
+</style>
+<body>
+  <h1>サブページ（index2.html）</h1>
+  <p><a href="./index.html">← トップへ戻る</a></p>
+
+  <h2>資料リンク</h2>
+  <p><a href="./data/manual.pdf" target="_blank">manual.pdf を開く</a></p>
+
+  <h2>ギャラリー（JSONから生成）</h2>
+  <div id="gallery">Loading…</div>
+
+  <script>
+    async function main(){
+      try {
+        const res = await fetch('./data/items.json'); // 同一オリジンならOK
+        const items = await res.json();
+        const wrap = document.getElementById('gallery');
+        wrap.textContent = '';
+        for (const it of items) {
+          const fig = document.createElement('figure');
+          const img = document.createElement('img');
+          img.src = it.src;
+          img.alt = it.title || '';
+          const cap = document.createElement('figcaption');
+          cap.textContent = it.title || '';
+          fig.append(img, cap);
+          wrap.append(fig);
+        }
+      } catch (e) {
+        document.getElementById('gallery').textContent = '読み込みに失敗しました。' + e;
+      }
+    }
+    main();
+  </script>
+</body>
+</html>

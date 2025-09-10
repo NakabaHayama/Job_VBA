@@ -1,0 +1,91 @@
+<!-- <!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1>Hellow</h1>
+        <div class="container">
+            <p>
+                <script>
+                    document.write("これはJAVAScriptによる表示です、");
+                </script>
+                <br>
+                <br>
+                <script>
+                    document.write("This is A title of JavaScript.");
+                </script>
+
+            </p>
+        </div>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        label {
+            display: inline-block;
+            width: 50px;
+        }
+        input {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>成績計算</h1>
+    <div class="container">
+        <label>国語:</label>
+        <input type="number" id="japanese" placeholder="点数"><br>
+        
+        <label>数学:</label>
+        <input type="number" id="math" placeholder="点数"><br>
+        
+        <label>英語:</label>
+        <input type="number" id="english" placeholder="点数"><br>
+        
+        <button onclick="calculate()">計算する</button>
+        
+        <div class="result">
+            合計: <span id="sum">0</span><br>
+            平均: <span id="average">0</span>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            // 入力値を数値として取得
+            const japanese = Number(document.getElementById("japanese").value) || 0;
+            const math = Number(document.getElementById("math").value) || 0;
+            const english = Number(document.getElementById("english").value) || 0;
+
+            // 合計と平均を計算
+            const sum = japanese + math + english;
+            const average = sum / 3;
+
+            // 表示に反映
+            document.getElementById("sum").textContent = sum;
+            document.getElementById("average").textContent = average.toFixed(2); // 小数2桁
+        }
+    </script>
+</body>
+</html>
