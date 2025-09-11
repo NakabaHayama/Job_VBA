@@ -122,31 +122,63 @@
       }
     });
 
-    // ギャラリー（既存のまま）
-    async function main(){
-      try {
-        const res = await fetch('./data/items.json');
-        const items = await res.json();
-        const wrap = document.getElementById('gallery');
-        wrap.textContent = '';
-        for (const it of items) {
-          const fig = document.createElement('figure');
-          const img = document.createElement('img');
-          img.src = it.src;
-          img.alt = it.title || '';
-          const cap = document.createElement('figcaption');
-          cap.textContent = it.title || '';
-          fig.append(img, cap);
-          wrap.append(fig);
-        }
-      } catch (e) {
-        document.getElementById('gallery').textContent = '読み込みに失敗しました。' + e;
-      }
-    }
+  //   // ギャラリー（既存のまま）
+  //   async function main(){
+  //     try {
+  //       const res = await fetch('./data/items.json');
+  //       const items = await res.json();
+  //       const wrap = document.getElementById('gallery');
+  //       wrap.textContent = '';
+  //       for (const it of items) {
+  //         const fig = document.createElement('figure');
+  //         const img = document.createElement('img');
+  //         img.src = it.src;
+  //         img.alt = it.title || '';
+  //         const cap = document.createElement('figcaption');
+  //         cap.textContent = it.title || '';
+  //         fig.append(img, cap);
+  //         wrap.append(fig);
+  //       }
+  //     } catch (e) {
+  //       document.getElementById('gallery').textContent = '読み込みに失敗しました。' + e;
+  //     }
+  //   }
 
-    // 起動時
-    loadEvents();
-    main();
-  </script>
+  //   // 起動時
+  //   loadEvents();
+  //   main();
+  // 
+
+// ギャラリー（既存のまま）
+async function main(){
+  try {
+    const res = await fetch('./data/items.json');
+    const items = await res.json();
+    const wrap = document.getElementById('gallery');
+    wrap.textContent = '';
+    for (const it of items) {
+      const fig = document.createElement('figure');
+      const img = document.createElement('img');
+      img.src = it.src;
+      img.alt = it.title || '';
+      const cap = document.createElement('figcaption');
+      cap.textContent = it.title || '';
+      fig.append(img, cap);
+      wrap.append(fig);
+    }
+  } catch (e) {
+    document.getElementById('gallery').textContent = '読み込みに失敗しました。' + e;
+  }
+}
+
+// 起動時
+loadEvents();
+main();
+</script>
+
+
+
 </body>
 </html>
+
+
