@@ -152,8 +152,13 @@
 // ギャラリー（既存のまま）
 async function main(){
   try {
-    const res = await fetch('./data/items.json');
-    const items = await res.json();
+    // const res = await fetch('./data/items.json');
+    // const items = await res.json();
+// キャッシュ回避のために ?v=現在時刻 をクエリ文字列として追加
+const res = await fetch('./data/items.json?v=' + Date.now(), { cache: 'no-store' });
+const items = await res.json();
+
+    
     const wrap = document.getElementById('gallery');
     wrap.textContent = '';
     for (const it of items) {
