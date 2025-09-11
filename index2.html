@@ -23,6 +23,7 @@
 　 <h2><span id="month">〇</span> 月以降の申込み</h2> 
 
   <!-- ② 申込みフォーム（4項目） -->
+    <!-- ② 申込みフォーム（6項目） -->
   <form id="applyForm">
     <label for="name">申込者氏名</label>
     <input type="text" id="name" name="name" autocomplete="name" required>
@@ -38,9 +39,20 @@
     <label for="adults">大人の人数</label>
     <input type="number" id="adults" name="adults" inputmode="numeric" min="0" step="1" value="0" required>
 
+    <!-- 追加：電話番号 -->
+    <label for="tel">電話番号</label>
+    <input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel"
+           placeholder="070-1234-5678" required>
+
+    <!-- 追加：メールアドレス -->
+    <label for="email">メールアドレス</label>
+    <input type="email" id="email" name="email" autocomplete="email"
+           placeholder="example@example.com" required>
+
     <button type="submit">送信する</button>
     <div id="msg" class="note" role="status" aria-live="polite"></div>
   </form>
+
 
   <h2>資料リンク</h2>
   <p><a href="./data/sc9.pdf" target="_blank"> ９月のスケジュール.pdf を開く</a></p>
@@ -64,8 +76,6 @@
   </p>
 
 
-
-
   <h2>ギャラリー</h2>
   <div id="gallery">Loading…</div>
 
@@ -74,133 +84,107 @@
 
 
   <script>
-    // === 設定（後でURLを差し替え） ===
-    const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwiL1RJlCrPzNkC0U6qKrj26MFfc6ntnJC3rADqnltASXUSDMh2acl_cdp0pJpDyhci/exec";  // Apps Script Web アプリのURL（下で作成）
+  // === 設定（後でURLを差し替え） ===
+  const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyb4dRuBmCz3NPTg-bvd0omrGVAPUizIMxwfkJltH19xmX8V28g8dhx6E8dWFneKiFI/exec";
 
-    // 表題の月（現在月を自動セット）
-    document.getElementById("month").textContent = new Date().getMonth() + 1;
+  // 表題の月（現在月を自動セット）
+  document.getElementById("month").textContent = new Date().getMonth() + 1;
 
-    // 行事名リストを取得してプルダウンに反映
-    async function loadEvents() {
-      const sel = document.getElementById("event");
-      try {
-        const res = await fetch(WEBAPP_URL + "?mode=events");
-        if (!res.ok) throw new Error(res.status + " " + res.statusText);
-        const data = await res.json(); // { events: ["...","..."] }
-        sel.innerHTML = '<option value="">選択してください</option>';
-        (data.events || []).forEach(ev => {
-          const opt = document.createElement("option");
-          opt.value = ev;
-          opt.textContent = ev;
-          sel.appendChild(opt);
-        });
-        if (!data.events?.length) {
-          sel.innerHTML = '<option value="">（行事リスト未登録）</option>';
-        }
-      } catch (e) {
-        sel.innerHTML = '<option value="">読込に失敗しました</option>';
-        console.error(e);
+  // 行事名リストを取得してプルダウンに反映
+  async function loadEvents() {
+    const sel = document.getElementById("event");
+    try {
+      const res = await fetch(WEBAPP_URL + "?mode=events");
+      if (!res.ok) throw new Error(res.status + " " + res.statusText);
+      const data = await res.json(); // { events: ["...","..."] }
+      sel.innerHTML = '<option value="">選択してください</option>';
+      (data.events || []).forEach(ev => {
+        const opt = document.createElement("option");
+        opt.value = ev;
+        opt.textContent = ev;
+        sel.appendChild(opt);
+      });
+      if (!data.events?.length) {
+        sel.innerHTML = '<option value="">（行事リスト未登録）</option>';
       }
+    } catch (e) {
+      sel.innerHTML = '<option value="">読込に失敗しました</option>';
+      console.error(e);
     }
-
-    // 送信（4項目 → スプレッドシートに転記）
-    document.getElementById("applyForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const msg = document.getElementById("msg");
-      msg.textContent = "送信中…";
-
-      const payload = {
-        name:   document.getElementById("name").value.trim(),
-        event:  document.getElementById("event").value.trim(),
-        kids:   Number(document.getElementById("kids").value || 0),
-        adults: Number(document.getElementById("adults").value || 0),
-      };
-      if (!payload.name || !payload.event) {
-        msg.textContent = "氏名と行事名は必須です。";
-        msg.className = "note ng";
-        return;
-      }
-
-      try {
-        const res = await fetch(WEBAPP_URL, {
-          method: "POST",
-          // headers: { "Content-Type": "application/json" },
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload),
-        });
-        const data = await res.json(); // { ok: true } など
-        if (data.ok) {
-          msg.textContent = "送信しました。ありがとうございました。";
-          msg.className = "note ok";
-          e.target.reset();
-        } else {
-          throw new Error(data.error || "不明なエラー");
-        }
-      } catch (err) {
-        console.error(err);
-        msg.textContent = "送信に失敗しました。時間をおいて再度お試しください。";
-        msg.className = "note ng";
-      }
-    });
-
-  //   // ギャラリー（既存のまま）
-  //   async function main(){
-  //     try {
-  //       const res = await fetch('./data/items.json');
-  //       const items = await res.json();
-  //       const wrap = document.getElementById('gallery');
-  //       wrap.textContent = '';
-  //       for (const it of items) {
-  //         const fig = document.createElement('figure');
-  //         const img = document.createElement('img');
-  //         img.src = it.src;
-  //         img.alt = it.title || '';
-  //         const cap = document.createElement('figcaption');
-  //         cap.textContent = it.title || '';
-  //         fig.append(img, cap);
-  //         wrap.append(fig);
-  //       }
-  //     } catch (e) {
-  //       document.getElementById('gallery').textContent = '読み込みに失敗しました。' + e;
-  //     }
-  //   }
-
-  //   // 起動時
-  //   loadEvents();
-  //   main();
-  // 
-
-// ギャラリー（既存のまま）
-async function main(){
-  try {
-    // const res = await fetch('./data/items.json');
-    // const items = await res.json();
-// キャッシュ回避のために ?v=現在時刻 をクエリ文字列として追加
-const res = await fetch('./data/items.json?v=' + Date.now(), { cache: 'no-store' });
-const items = await res.json();
-
-    
-    const wrap = document.getElementById('gallery');
-    wrap.textContent = '';
-    for (const it of items) {
-      const fig = document.createElement('figure');
-      const img = document.createElement('img');
-      img.src = it.src;
-      img.alt = it.title || '';
-      const cap = document.createElement('figcaption');
-      cap.textContent = it.title || '';
-      fig.append(img, cap);
-      wrap.append(fig);
-    }
-  } catch (e) {
-    document.getElementById('gallery').textContent = '読み込みに失敗しました。' + e;
   }
-}
 
-// 起動時
-loadEvents();
-main();
+  // 送信（6項目 → スプレッドシートへ）
+  document.getElementById("applyForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = document.getElementById("msg");
+    msg.textContent = "送信中…";
+    msg.className = "note";
+
+    const payload = {
+      name:   document.getElementById("name").value.trim(),
+      event:  document.getElementById("event").value.trim(),
+      kids:   Number(document.getElementById("kids").value || 0),
+      adults: Number(document.getElementById("adults").value || 0),
+      tel:    document.getElementById("tel").value.trim(),
+      email:  document.getElementById("email").value.trim(),
+    };
+
+    if (!payload.name || !payload.event || !payload.tel || !payload.email) {
+      msg.textContent = "氏名・行事名・電話番号・メールは必須です。";
+      msg.className = "note ng";
+      return;
+    }
+
+    try {
+      const res = await fetch(WEBAPP_URL, {
+        method: "POST",
+        // JSONだと一部環境でプリフライトが走るため、従来どおり text/plain を継続
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json(); // { ok: true } など
+      if (data.ok) {
+        msg.textContent = "送信しました。ありがとうございました。";
+        msg.className = "note ok";
+        e.target.reset();
+      } else {
+        throw new Error(data.error || "不明なエラー");
+      }
+    } catch (err) {
+      console.error(err);
+      msg.textContent = "送信に失敗しました。時間をおいて再度お試しください。";
+      msg.className = "note ng";
+    }
+  });
+
+  // ギャラリー（キャッシュ回避付きのまま）
+  async function main(){
+    try {
+      const res = await fetch('./data/items.json?v=' + Date.now(), { cache: 'no-store' });
+      const items = await res.json();
+
+      const wrap = document.getElementById('gallery');
+      wrap.textContent = '';
+      for (const it of items) {
+        const fig = document.createElement('figure');
+        const img = document.createElement('img');
+        img.src = it.src;
+        img.alt = it.title || '';
+        const cap = document.createElement('figcaption');
+        cap.textContent = it.title || '';
+        fig.append(img, cap);
+        wrap.append(fig);
+      }
+    } catch (e) {
+      document.getElementById('gallery').textContent = '読み込みに失敗しました。' + e;
+    }
+  }
+
+  // 起動時
+  loadEvents();
+  main();
 </script>
+
 
 
 
