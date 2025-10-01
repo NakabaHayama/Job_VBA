@@ -45,11 +45,11 @@
            placeholder="070-1234-5678" required>
 
     <!-- 追加：メールアドレス -->
-    <label for="email">メールアドレス</label>
+    <label for="email">メールアドレス（任意です）</label>
     <input type="email" id="email" name="email" autocomplete="email"
-           placeholder="example@example.com" required>
+           placeholder="example@example.com">
 
-    <button type="submit">送信する</button>
+    <button type="submit">送信する（メール等への通知はありません）</button>
     <div id="msg" class="note" role="status" aria-live="polite"></div>
   </form>
 
@@ -129,8 +129,8 @@
       email:  document.getElementById("email").value.trim(),
     };
 
-    if (!payload.name || !payload.event || !payload.tel || !payload.email) {
-      msg.textContent = "氏名・行事名・電話番号・メールは必須です。";
+    if (!payload.name || !payload.event || !payload.tel) {
+      msg.textContent = "氏名・行事名・電話番号は必須です。";
       msg.className = "note ng";
       return;
     }
@@ -144,7 +144,8 @@
       });
       const data = await res.json(); // { ok: true } など
       if (data.ok) {
-        msg.textContent = "送信しました。ありがとうございました。";
+        alert("送信しました。ありがとうございました。メールでの送付はありません。お手数でも変更や、登録確認はお電話でお願いします。");
+        msg.textContent = "";
         msg.className = "note ok";
         e.target.reset();
       } else {
