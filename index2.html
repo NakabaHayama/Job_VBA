@@ -144,7 +144,7 @@
       });
       const data = await res.json(); // { ok: true } など
       if (data.ok) {
-        alert("送信しました。ありがとうございました。メールでの送付はありません。お手数でも変更や、登録確認はお電話でお願いします。");
+        alert("送信しました。ありがとうございました。メールでのお客様への確認通知はありません。変更や再度の登録確認はお手数ですが、お電話か直接園でお問い合わせ下さい。");
         msg.textContent = "";
         msg.className = "note ok";
         e.target.reset();
