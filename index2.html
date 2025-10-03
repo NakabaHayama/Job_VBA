@@ -91,45 +91,93 @@
   // 表題の月（現在月を自動セット）
   document.getElementById("month").textContent = new Date().getMonth() + 1;
 
-// 行事名リストを取得してプルダウンに反映（value=行事名だけ、表示は「行事名（残りX家族）」）
+// 行事名リストを取得してプルダウンに反映（残数が0以下なら disabled にする）
 async function loadEvents() {
-const sel = document.getElementById("event");
-try {
-const res = await fetch(WEBAPP_URL + "?mode=events");
-if (!res.ok) throw new Error(res.status + " " + res.statusText);
-const data = await res.json(); // 推奨: { events: [{ name: "行事名", remain: 数値 }, ...] }
+  const sel = document.getElementById("event");
+  try {
+    const res = await fetch(WEBAPP_URL + "?mode=events");
+    if (!res.ok) throw new Error(res.status + " " + res.statusText);
+    const data = await res.json(); // { events: [{ name:"行事名", remain:数値 }, ...] }
 
+    sel.innerHTML = '<option value="">選択してください</option>';
 
-sel.innerHTML = '<option value="">選択してください</option>';
+    (data.events || []).forEach(ev => {
+      const opt = document.createElement("option");
 
+      if (typeof ev === 'string') {
+        // 後方互換（古い形式の場合）
+        opt.value = ev;
+        opt.textContent = ev;
+      } else {
+        const name = ev.name ?? '';
+        const remain = (ev.remain ?? '') === '' ? '' : Number(ev.remain);
 
-(data.events || []).forEach(ev => {
-const opt = document.createElement("option");
+        opt.value = name; // 送信は行事名だけ
 
+        if (remain === '' || Number.isNaN(remain)) {
+          // 残数が空なら通常表示
+          opt.textContent = name;
+        } else if (remain <= 0) {
+          // 満員 → disabled にして「現在満員・予約待ち」表示
+          opt.textContent = `${name}（現在満員・予約待ち）`;
+          opt.disabled = true;
+        } else {
+          // 残数あり
+          opt.textContent = `${name}（残り${remain}家族）`;
+        }
+      }
 
-// 後方互換: ev が文字列の場合は、そのまま表示して value=文字列
-if (typeof ev === 'string') {
-opt.value = ev; // 旧API互換（この場合は表示=送信値が同じになります）
-opt.textContent = ev;
-} else {
-// 新API: {name, remain}
-const name = ev.name ?? '';
-const remain = (ev.remain ?? '') === '' ? '' : String(ev.remain);
-opt.value = name; // 送信は行事名だけ
-opt.textContent = remain === '' ? name : `${name}（残り${remain}家族）`;
+      sel.appendChild(opt);
+    });
+
+    if (!data.events?.length) {
+      sel.innerHTML = '<option value="">（行事リスト未登録）</option>';
+    }
+  } catch (e) {
+    sel.innerHTML = '<option value="">読込に失敗しました</option>';
+    console.error(e);
+  }
 }
-sel.appendChild(opt);
-});
+
+// // 行事名リストを取得してプルダウンに反映（value=行事名だけ、表示は「行事名（残りX家族）」）
+// async function loadEvents() {
+// const sel = document.getElementById("event");
+// try {
+// const res = await fetch(WEBAPP_URL + "?mode=events");
+// if (!res.ok) throw new Error(res.status + " " + res.statusText);
+// const data = await res.json(); // 推奨: { events: [{ name: "行事名", remain: 数値 }, ...] }
 
 
-if (!data.events?.length) {
-sel.innerHTML = '<option value="">（行事リスト未登録）</option>';
-}
-} catch (e) {
-sel.innerHTML = '<option value="">読込に失敗しました</option>';
-console.error(e);
-}
-}
+// sel.innerHTML = '<option value="">選択してください</option>';
+
+
+// (data.events || []).forEach(ev => {
+// const opt = document.createElement("option");
+
+
+// // 後方互換: ev が文字列の場合は、そのまま表示して value=文字列
+// if (typeof ev === 'string') {
+// opt.value = ev; // 旧API互換（この場合は表示=送信値が同じになります）
+// opt.textContent = ev;
+// } else {
+// // 新API: {name, remain}
+// const name = ev.name ?? '';
+// const remain = (ev.remain ?? '') === '' ? '' : String(ev.remain);
+// opt.value = name; // 送信は行事名だけ
+// opt.textContent = remain === '' ? name : `${name}（残り${remain}家族）`;
+// }
+// sel.appendChild(opt);
+// });
+
+
+// if (!data.events?.length) {
+// sel.innerHTML = '<option value="">（行事リスト未登録）</option>';
+// }
+// } catch (e) {
+// sel.innerHTML = '<option value="">読込に失敗しました</option>';
+// console.error(e);
+// }
+// }
 
   // // 行事名リストを取得してプルダウンに反映
   // async function loadEvents() {
