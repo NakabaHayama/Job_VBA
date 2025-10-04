@@ -119,7 +119,7 @@ async function loadEvents() {
           opt.textContent = name;
         } else if (remain <= 0) {
           // 満員 → disabled にして「現在満員・予約待ち」表示
-          opt.textContent = `${name}（現在満員・予約待ち）`;
+          opt.textContent = `${name}（現在満員・キャンセル待）`;
           opt.disabled = true;
         } else {
           // 残数あり
