@@ -25,7 +25,7 @@
   <!-- ② 申込みフォーム（4項目） -->
     <!-- ② 申込みフォーム（6項目） -->
   <form id="applyForm">
-    <label for="name">参加者（お子様の名前）</label>
+    <label for="name">参加者代表（お子様の名前ひらがな）</label>
     <input type="text" id="name" name="name" autocomplete="name" required>
 
     <label for="event">行事名 <span class="note">（スプレッドシートから自動読込）</span></label>
@@ -45,11 +45,11 @@
            placeholder="070-1234-5678" required>
 
     <!-- 追加：メールアドレス -->
-    <label for="email">メールアドレス（任意です）</label>
+    <label for="email">メールアドレス（任意項目ですが、受付確認メールが必要な方はアドレスを入れて下さい）</label>
     <input type="email" id="email" name="email" autocomplete="email"
            placeholder="example@example.com">
 
-    <button type="submit">送信する（メールへの確認通知はありません：登録内容はメモをお願いします）</button>
+    <button type="submit">送信する（登録内容は事前にメモをお願いします）</button>
     <div id="msg" class="note" role="status" aria-live="polite"></div>
   </form>
 
@@ -233,7 +233,7 @@ async function loadEvents() {
       });
       const data = await res.json(); // { ok: true } など
       if (data.ok) {
-        alert("送信しました。ありがとうございました。メールでのお客様への確認通知はありません。変更や再度の登録確認はお手数ですが、お電話か直接園でお問い合わせ下さい。");
+        alert("送信しました。ありがとうございました。メール登録された方だけ後程（園の営業日に）、受付確認のメールをお送りします。");
         msg.textContent = "";
         msg.className = "note ok";
         e.target.reset();
