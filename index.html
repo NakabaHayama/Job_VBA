@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>早間 央 | HAYAMA NAKABA</title>
+<title>楽しく働く</title>
 <meta name="description" content="福山市鞆町を拠点に、企業・法人の役員／顧問として経営と業務改善を支援。Excel VBAマクロからClaude CodeによるWebアプリ開発まで。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +59,7 @@
   .nw{ display:inline-block; }
   p{ margin:0; }
   .wrap{ max-width:1120px; margin-inline:auto; padding-inline:clamp(16px,4vw,40px); }
-  .en{ display:none; font-family:var(--f-mono); font-size:var(--s-1); line-height:1.6; color:var(--muted); letter-spacing:.01em; }
+  .en{ display:none; font-family:var(--f-body); font-size:.9375rem; line-height:1.75; color:var(--muted); }
   body.show-en .en{ display:block; }
   body.show-en span.en.inline{ display:inline; }
 
@@ -86,7 +86,7 @@
   /* ---------- hero ---------- */
   .hero{
     position:relative; overflow:hidden; background:var(--band); color:var(--band-ink);
-    padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px);
+    padding-block:clamp(28px,4.5vw,52px) clamp(26px,4vw,44px);
   }
   /* 波紋：港に寄せる潮 */
   .hero::before{
@@ -94,10 +94,10 @@
     background:repeating-radial-gradient(circle at center, transparent 0 26px, rgba(233,238,240,.06) 26px 27px);
     mask-image:radial-gradient(circle at center, #000 0 45%, transparent 70%);
   }
-  .hero .wrap{ position:relative; display:grid; grid-template-columns:auto minmax(0,1fr); gap:clamp(28px,6vw,80px); align-items:start; }
+  .hero .wrap{ position:relative; display:grid; grid-template-columns:auto minmax(0,1fr); gap:clamp(24px,4.5vw,56px); align-items:start; }
   .name-v{
     writing-mode:vertical-rl; font-family:var(--f-display); font-weight:800;
-    font-size:clamp(3.25rem,8vw,5.75rem); line-height:1; letter-spacing:.18em;
+    font-size:clamp(2rem,4vw,3.25rem); line-height:1; letter-spacing:.12em;
     padding-left:clamp(18px,2.4vw,28px); position:relative;
   }
   /* 常夜燈の灯り */
@@ -106,10 +106,10 @@
     background:linear-gradient(180deg, var(--lantern), color-mix(in srgb, var(--lantern) 10%, transparent));
     box-shadow:0 0 18px color-mix(in srgb, var(--lantern) 55%, transparent);
   }
-  .hero-body{ display:flex; flex-direction:column; gap:22px; padding-top:6px; max-width:44rem; min-width:0; }
+  .hero-body{ display:flex; flex-direction:column; gap:14px; padding-top:2px; max-width:46rem; min-width:0; }
   @media (max-width:560px){
     .hero .wrap{ grid-template-columns:1fr; gap:20px; }
-    .name-v{ writing-mode:horizontal-tb; font-size:2.75rem; letter-spacing:.2em; padding:0 0 14px; }
+    .name-v{ writing-mode:horizontal-tb; font-size:2rem; letter-spacing:.16em; padding:0 0 10px; }
     .name-v::after{ top:auto; bottom:0; left:0; right:auto; width:3.5em; height:3px;
       background:linear-gradient(90deg, var(--lantern), transparent); }
   }
@@ -121,18 +121,18 @@
   .prompt .ps{ color:var(--band-muted); }
   .prompt .q{ color:var(--lantern); }
   .caret{ display:inline-block; width:.55em; height:1.1em; margin-left:4px; vertical-align:-.2em; background:var(--lantern); }
-  .hero h1{ font-family:var(--f-display); font-weight:800; font-size:clamp(1.75rem,3.6vw,var(--s4)); line-height:1.45; letter-spacing:.02em; }
+  .hero h1{ font-family:var(--f-display); font-weight:800; font-size:clamp(1.5rem,3vw,2.375rem); line-height:1.4; letter-spacing:.02em; }
   .hero h1 em{ font-style:normal; color:var(--lantern); }
-  .hero .lead{ color:var(--band-muted); max-width:36rem; }
+  .hero .lead{ color:var(--band-muted); max-width:40rem; font-size:.9375rem; line-height:1.75; }
   .hero .en{ color:var(--band-muted); }
-  .facts{ list-style:none; margin:6px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid rgba(255,255,255,.14); }
-  .facts li{ padding:16px 16px 0 0; display:flex; flex-direction:column; gap:4px; }
+  .facts{ list-style:none; margin:2px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid rgba(255,255,255,.14); }
+  .facts li{ padding:10px 16px 0 0; display:flex; flex-direction:column; gap:2px; }
   .facts .yr{ font-family:var(--f-mono); font-size:var(--s-1); color:var(--lantern); letter-spacing:.06em; }
-  .facts .tx{ font-size:.9375rem; line-height:1.6; }
-  .hero .cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:4px; }
+  .facts .tx{ font-size:.875rem; line-height:1.55; }
+  .hero .cta{ display:flex; gap:12px; flex-wrap:wrap; }
   .btn{
     display:inline-flex; align-items:center; gap:10px; text-decoration:none;
-    font-size:var(--s-1); letter-spacing:.04em; padding:10px 18px; border-radius:999px;
+    font-size:var(--s-1); letter-spacing:.04em; padding:6px 16px; border-radius:999px;
     border:1px solid var(--lantern); color:var(--band-ink); transition:background .2s, color .2s;
   }
   .btn:hover{ background:var(--lantern); color:#1A1F24; }
@@ -290,25 +290,19 @@
       <a href="#career">経歴</a>
       <a href="#contact">連絡先</a>
     </nav>
-    <button class="lang" id="lang-toggle" type="button" aria-pressed="false" title="英語を表示">EN</button>
+    <button class="lang" id="lang-toggle" type="button" aria-pressed="true" title="英語を隠す">EN</button>
   </div>
 </header>
 
 <div class="hero" id="top">
   <div class="wrap">
-    <div class="name-v" aria-hidden="true">早間央</div>
+    <div class="name-v" aria-hidden="true">楽しく働く</div>
     <div class="hero-body">
-      <p class="prompt" aria-label="Claude Codeのプロンプト風の一行"><span class="ps">~/tomo-no-ura $</span> claude <span class="q">"現場の仕事を、もっと軽く"</span><span class="caret" aria-hidden="true"></span></p>
-      <h1><span class="nw">東京で経営を学び、</span><br><span class="nw">故郷・鞆の浦で</span><span class="nw"><em>現場の仕事</em>を軽くする。</span></h1>
-      <p class="lead">2017年、故郷の福山市鞆町にUターン。企業や法人の役員・顧問として経営を支えながら、Excel VBAマクロからAI（Claude Code）によるWebアプリまで、現場で本当に使われる仕組みをつくっています。
-        <span class="en">Back in my hometown of Tomo, Fukuyama since 2017, I support companies and institutions as a board member and advisor — and build tools people actually use, from Excel VBA macros to web apps developed with AI (Claude Code).</span>
+      <p class="prompt" aria-label="Claude Codeのプロンプト風の一行"><span class="ps">~/hayama $</span> claude <span class="q">"面倒な作業は任せた。釣りに行ってくる"</span><span class="caret" aria-hidden="true"></span></p>
+      <h1><span class="nw">AIの時代、</span><br><span class="nw"><em>仕事は楽しく。</em></span><span class="nw">暮らしは豊かに。</span></h1>
+      <p class="lead">50歳を前に、東京での仕事にひと区切り。暮らしを楽しみたくて、釣りがしたくて、2017年に故郷の福山へ帰ってきました。いまは地元の会社や法人で、経営者に随伴しながら、ExcelのマクロやAI（Claude Code）で現場の道具をつくっています。あとは海と、地域と、自分の暮らし。
+        <span class="en" lang="en">Approaching 50, I closed the chapter of working in Tokyo and came home to Fukuyama in 2017 — to enjoy life, and to go fishing. Today I walk alongside the owners of local companies and institutions, and build tools for their day-to-day work with Excel macros and AI (Claude Code). The rest of the time belongs to the sea, the community and life.</span>
       </p>
-      <ul class="facts">
-        <li><span class="yr">1997 —</span><span class="tx">東京で起業。日本と中国で社員約500名規模に</span></li>
-        <li><span class="yr">2017 —</span><span class="tx">鞆町へUターン。役員・顧問として地域企業を支援</span></li>
-        <li><span class="yr">NOW —</span><span class="tx">VBAマクロからClaude Codeによるアプリ開発へ</span></li>
-      </ul>
-      <div class="cta"><a class="btn" href="#contact">連絡する <span aria-hidden="true">→</span></a></div>
     </div>
   </div>
 </div>
@@ -322,28 +316,28 @@
         <div class="label">Philosophy</div>
         <div>
           <h2>活動理念</h2>
-          <p class="en">Recent Activities &amp; Philosophy</p>
+          <p class="en" lang="en">Recent Activities &amp; Philosophy</p>
         </div>
         <div class="sec-intro">
-          <p>2017年、故郷福山市鞆町にUターンして、個人事業者として企業のアドバイザーや顧問業をしています。</p>
-          <p class="en">Since returning to Fukuyama in 2017, I have worked as an independent advisor and corporate consultant.</p>
+          <p>2017年に故郷の鞆町へUターン。個人事業者として、会社や法人のアドバイザー・顧問をしています。</p>
+          <p class="en" lang="en">Since returning to Fukuyama in 2017, I have worked as an independent advisor and corporate consultant.</p>
         </div>
       </div>
       <div class="creed">
         <div>
-          <h3>経営のそばで、組織を整える</h3>
-          <p>組織管理、雇用や社員教育、コンプライアンス、新規事業や海外進出のフォローをしています。</p>
-          <p class="en">I advise on organization management, hiring and training, new ventures, and overseas expansion.</p>
-        </div>
-        <div>
-          <h3>ICTで、現場の手間を減らす</h3>
-          <p>ICT化の相談も多く、VBAマクロを活用した業務改善をご提案しています。最近はAI（Claude Code）を使った業務アプリの開発も行っています。</p>
-          <p class="en">I also handle many ICT consultations and propose process improvements using VBA macros, and recently develop business apps with AI (Claude Code).</p>
-        </div>
-        <div>
-          <h3>地元への貢献と、個人の生活を大切に</h3>
+          <h3>暮らしと地元が、いちばん</h3>
           <p>地域企業の顧問や地元でのボランティア活動に取り組み、50歳を期に経済活動は一旦区切りをつけ、地元貢献と個人生活を大切にしています。</p>
-          <p class="en">I focus on supporting local businesses and volunteering. I consider my intensive economic activities to have concluded in Tokyo; in Fukuyama I prioritize community contributions and personal life.</p>
+          <p class="en" lang="en">I focus on supporting local businesses and volunteering. I consider my intensive economic activities to have concluded in Tokyo; in Fukuyama I prioritize community contributions and personal life.</p>
+        </div>
+        <div>
+          <h3>経営のとなりで、一緒に考える</h3>
+          <p>組織管理、雇用や社員教育、コンプライアンス、新規事業や海外進出などのご相談に応じています。決めるのは会社のみなさん。私は判断の材料をそろえて、となりで一緒に考える役です。</p>
+          <p class="en" lang="en">I am here for questions on organization management, hiring and training, compliance, new ventures and overseas expansion. The company decides; my part is to lay out what the decision needs and think it through alongside them.</p>
+        </div>
+        <div>
+          <h3>面倒な作業は、マクロとAIに</h3>
+          <p>ICT化の相談も多く、VBAマクロを活用した業務改善をご提案しています。最近はAI（Claude Code）を使った業務アプリの開発も行っています。</p>
+          <p class="en" lang="en">I also handle many ICT consultations and propose process improvements using VBA macros, and recently develop business apps with AI (Claude Code).</p>
         </div>
       </div>
     </div>
@@ -356,7 +350,7 @@
         <div class="label">Roles &amp; Community</div>
         <div>
           <h2>役員就任企業・地域活動や記録</h2>
-          <p class="en">Board &amp; Advisory Roles, Local Activities</p>
+          <p class="en" lang="en">Board &amp; Advisory Roles, Local Activities</p>
         </div>
       </div>
 
@@ -364,26 +358,26 @@
         <div>
           <p class="group-label"><b>現任</b> Current</p>
           <ul class="rows">
-            <li><span class="org">A社（製缶・鋼材加工業）</span><span class="role">取締役</span><span class="en">Company A (Steel Fabrication) — Director</span></li>
-            <li><span class="org">B社（学校法人・幼稚園／こども園）</span><span class="role">理事</span><span class="en">Company B (Educational Corporation / Kindergarten) — Director</span></li>
-            <li><span class="org">C社（機械工具商社）</span><span class="role">顧問</span><span class="en">Company C (Machine Tool Trading) — Advisor</span></li>
+            <li><span class="org">A社（製缶・鋼材加工業）</span><span class="role">取締役</span><span class="en" lang="en">Company A (Steel Fabrication) — Director</span></li>
+            <li><span class="org">B社（学校法人・幼稚園／こども園）</span><span class="role">理事</span><span class="en" lang="en">Company B (Educational Corporation / Kindergarten) — Director</span></li>
+            <li><span class="org">C社（機械工具商社）</span><span class="role">顧問</span><span class="en" lang="en">Company C (Machine Tool Trading) — Advisor</span></li>
           </ul>
 
           <p class="group-label"><b>過去（辞任済）</b> Former</p>
           <ul class="rows past">
-            <li><span class="org">D医療法人（病院）</span><span class="role">顧問</span><span class="en">Medical Corporation D (Hospital) — Advisor</span></li>
-            <li><span class="org">E医療法人・社会福祉法人</span><span class="role">顧問</span><span class="en">Medical Corporation E &amp; Social Welfare Corporation — Advisor</span></li>
+            <li><span class="org">D医療法人（病院）</span><span class="role">顧問</span><span class="en" lang="en">Medical Corporation D (Hospital) — Advisor</span></li>
+            <li><span class="org">E医療法人・社会福祉法人</span><span class="role">顧問</span><span class="en" lang="en">Medical Corporation E &amp; Social Welfare Corporation — Advisor</span></li>
           </ul>
         </div>
 
         <div>
           <p class="group-label"><b>地域活動</b> Local Activities</p>
           <ul class="rows">
-            <li><span class="org">鞆町石井 2025秋祭り準備記録</span><a class="go" href="https://www.youtube.com/playlist?list=PLyFgtiJuAOL7JEz_rxyd0gblMguTuURQ-" target="_blank" rel="noopener">動画 ↗</a><span class="en">Tomonoura Ishi'i — 2025 Autumn Festival “Chousai” Preparation</span></li>
-            <li><span class="org">鞆の絆委員会</span><a class="go" href="https://drive.google.com/file/d/1PStDjgrcoZdIkjXW4Sx0DHWlanXwrANg/view?usp=drive_link" target="_blank" rel="noopener">資料 ↗</a><span class="en">Tomo Bonds Committee</span></li>
-            <li><span class="org">デジタル鞆の浦</span><a class="go" href="https://drive.google.com/file/d/1vrmc-Go0CnumKqZX4HmAdy_6oJ8Inz_9/view?usp=drive_link" target="_blank" rel="noopener">資料 ↗</a><span class="en">Digital Tomonoura</span></li>
-            <li><span class="org">鞆の浦メタバース</span><a class="go" href="https://drive.google.com/file/d/13MsMKSsnh9BREcvmBcCrKzhn6mAHEfa5/view?usp=drive_link" target="_blank" rel="noopener">資料 ↗</a><span class="en">Tomonoura Metaverse</span></li>
-            <li><span class="org">デジタル防災士</span><a class="go" href="https://drive.google.com/file/d/1fCOB0UM5vpD37dycjqu9rlkabXepmSdA/view?usp=drive_link" target="_blank" rel="noopener">資料 ↗</a><span class="en">Digital Disaster Prevention Specialist</span></li>
+            <li><span class="org">鞆町石井 2025秋祭り準備記録</span><a class="go" href="https://www.youtube.com/playlist?list=PLyFgtiJuAOL7JEz_rxyd0gblMguTuURQ-" target="_blank" rel="noopener">動画 ↗</a><span class="en" lang="en">Tomonoura Ishi'i — 2025 Autumn Festival “Chousai” Preparation</span></li>
+            <li><span class="org">鞆の絆委員会</span><a class="go" href="https://drive.google.com/file/d/1PStDjgrcoZdIkjXW4Sx0DHWlanXwrANg/view?usp=drive_link" target="_blank" rel="noopener">資料 ↗</a><span class="en" lang="en">Tomo Bonds Committee</span></li>
+            <li><span class="org">デジタル鞆の浦</span><a class="go" href="https://drive.google.com/file/d/1vrmc-Go0CnumKqZX4HmAdy_6oJ8Inz_9/view?usp=drive_link" target="_blank" rel="noopener">資料 ↗</a><span class="en" lang="en">Digital Tomonoura</span></li>
+            <li><span class="org">鞆の浦メタバース</span><a class="go" href="https://drive.google.com/file/d/13MsMKSsnh9BREcvmBcCrKzhn6mAHEfa5/view?usp=drive_link" target="_blank" rel="noopener">資料 ↗</a><span class="en" lang="en">Tomonoura Metaverse</span></li>
+            <li><span class="org">デジタル防災士</span><a class="go" href="https://drive.google.com/file/d/1fCOB0UM5vpD37dycjqu9rlkabXepmSdA/view?usp=drive_link" target="_blank" rel="noopener">資料 ↗</a><span class="en" lang="en">Digital Disaster Prevention Specialist</span></li>
           </ul>
         </div>
       </div>
@@ -397,67 +391,100 @@
         <div class="label">Macros &amp; Apps</div>
         <div>
           <h2>VBAマクロ・アプリ開発</h2>
-          <p class="en">VBA Macros &amp; App Development</p>
+          <p class="en" lang="en">VBA Macros &amp; App Development</p>
         </div>
         <div class="sec-intro">
           <p>顧問先の病院で、看護師のシフトをExcel VBAマクロで作ったのが始まりです。現在はAI開発ツール「Claude Code」を使い、スマホやタブレットから使えるWebアプリ・業務システムを開発しています。ログインや送信、価格などの最終判断は人が行い、アプリは下調べ・転記・照合を受け持つ設計を大切にしています。</p>
-          <p class="en">It began with an Excel VBA macro for nurse shifts at a hospital I advised. Today I build web apps and business systems for phones and tablets using the AI development tool Claude Code. People make the final decisions (logins, submissions, pricing); the apps handle research, transcription and reconciliation.</p>
+          <p class="en" lang="en">It began with an Excel VBA macro for nurse shifts at a hospital I advised. Today I build web apps and business systems for phones and tablets using the AI development tool Claude Code. People make the final decisions (logins, submissions, pricing); the apps handle research, transcription and reconciliation.</p>
         </div>
+      </div>
+
+      <!-- A社 -->
+      <div class="org-block">
+        <div class="org-title"><h3>A社</h3><span class="kind">製缶・鋼材加工業</span><span class="en inline" lang="en">Company A (Steel Fabrication)</span></div>
+
+        <article class="work">
+          <div class="work-head"><span class="tag app">APP</span><h4>日本とフィリピンをつなぐ社内ポータル</h4><p class="en" lang="en">Bilingual Company Portal Linking Japan and the Philippines</p></div>
+          <div class="work-body">
+            <p>日本の本社と、フィリピンの子会社が、同じ画面で日々の状況を見られるようにした社内ポータルです。重要連絡、取引先とのメール、入出荷、スタッフの予定、売上、経費を1つのダッシュボードにまとめました。</p>
+            <p class="en" lang="en">An in-house portal where the head office in Japan and the subsidiary in the Philippines see the same picture of each day: announcements, correspondence with customers, shipments, staff schedules, sales and expenses on one dashboard.</p>
+            <p>すべての画面が日本語と英語の併記で、見る人によってどちらを主役にするかが入れ替わります。時刻は日本とフィリピンの両方を並べて表示するので、1時間の時差で会議の予定がずれることがありません。金額もペソと円を併記し、為替レートは自作の別アプリから毎日取り込んでいます。</p>
+            <p class="en" lang="en">Every screen carries both Japanese and English, with the reader's own language taking the lead. Times are shown for both countries so the one-hour difference never moves a meeting, and amounts appear in both pesos and yen using rates pulled daily from a small companion app.</p>
+            <p>両社の社長が意見をそろえるための「合意ボード」もあります。議題ごとに、提案中・協議中・合意といった状態と、どちらの返事待ちかが一目でわかります。</p>
+            <p class="en" lang="en">An agreement board helps the two presidents reach a common view: each topic shows its state — proposed, under discussion, agreed — and whose reply it is waiting for.</p>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="work-head"><span class="tag app">APP</span><h4>ペソ・ドンの為替レート表示</h4><p class="en" lang="en">Peso &amp; Dong Exchange-rate Watch</p></div>
+          <div class="work-body">
+            <p>フィリピンペソとベトナムドンの対円レートを毎日取り込み、直近3日・7日・20日の平均と並べて表示します。今が高いのか安いのかが見えるので、送金や仕入れの判断に使えます。社内ポータルの金額換算も、このアプリのレートを読み込んでいます。</p>
+            <p class="en" lang="en">Pulls the Philippine peso and Vietnamese dong rates against the yen every day and shows them beside their 3-, 7- and 20-day averages, so it is clear whether today is high or low before sending money or buying. The company portal converts its amounts using the same rates.</p>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="work-head"><span class="tag app">APP</span><h4>出張・旅行の旅程づくり</h4><p class="en" lang="en">Trip Itinerary Planner</p></div>
+          <div class="work-body">
+            <p>出張や旅行の予定を、日ごとに時間・場所を並べて組み立てられます。作った旅程は一覧で見渡せ、暗証番号を知っている人だけが開ける形で同行者と共有。過去の旅程も残るので、次回の下敷きに使えます。</p>
+            <p class="en" lang="en">Builds a trip day by day — times and places in order — then shows the whole itinerary at a glance. It is shared with fellow travelers behind a PIN, and past trips stay on file as a starting point for the next one.</p>
+          </div>
+        </article>
       </div>
 
       <!-- B社 -->
       <div class="org-block">
-        <div class="org-title"><h3>B社</h3><span class="kind">学校法人・幼稚園／こども園</span><span class="en inline">Educational Corporation / Kindergarten</span></div>
+        <div class="org-title"><h3>B社</h3><span class="kind">学校法人・幼稚園／こども園</span><span class="en inline" lang="en">Educational Corporation / Kindergarten</span></div>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>職員シフトの希望登録・自動作成・公開</h4><p class="en">Staff Shift Requests, Automatic Planning &amp; Publishing</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>職員シフトの希望登録・自動作成・公開</h4><p class="en" lang="en">Staff Shift Requests, Automatic Planning &amp; Publishing</p></div>
           <div class="work-body">
             <p>シフトづくりの流れを、希望の登録から公開までWebでつなぎました。</p>
-            <p class="en">Connects the whole shift process on the web, from requests to publishing.</p>
+            <p class="en" lang="en">Connects the whole shift process on the web, from requests to publishing.</p>
             <ol class="steps">
-              <li><strong>希望登録</strong>　先生がスマホやパソコンからカレンダー形式でシフト希望を登録。締切の管理やExcelへの出力にも対応しています。<span class="en">Requests: teachers submit shift requests on a calendar from a phone or PC, with deadline management and Excel export.</span></li>
-              <li><strong>自動作成</strong>　先生の希望、行事、クラス担任、人員配置のルールを組み合わせて、月のシフト表を自動で作成します。早番・遅番の回り方や日ごとの必要人数など条件が多く、いちばん苦労した部分です。最終調整は担当の先生がExcel上で行います。<span class="en">Automatic planning: builds the monthly shift plan from requests, events, class assignments and staffing rules — with many constraints such as early/late rotations and daily staffing levels, this was the hardest part to build. Final adjustments are made in Excel by the teacher in charge.</span></li>
-              <li><strong>公開</strong>　完成したシフト表をアップロードすると、先生が自分のシフトや全体のシフトをWebで確認できます。途中で変わったシフトは「予定」と「実施」を2段で表示し、変更の履歴を残します。<span class="en">Publishing: upload the finished plan and teachers can view their own or everyone's schedule online. Later changes show planned vs. actual and are logged.</span></li>
+              <li><strong>希望登録</strong>　先生がスマホやパソコンからカレンダー形式でシフト希望を登録。締切の管理やExcelへの出力にも対応しています。<span class="en" lang="en">Requests: teachers submit shift requests on a calendar from a phone or PC, with deadline management and Excel export.</span></li>
+              <li><strong>自動作成</strong>　先生の希望、行事、クラス担任、人員配置のルールを組み合わせて、月のシフト表を自動で作成します。早番・遅番の回り方や日ごとの必要人数など条件が多く、いちばん苦労した部分です。最終調整は担当の先生がExcel上で行います。<span class="en" lang="en">Automatic planning: builds the monthly shift plan from requests, events, class assignments and staffing rules — with many constraints such as early/late rotations and daily staffing levels, this was the hardest part to build. Final adjustments are made in Excel by the teacher in charge.</span></li>
+              <li><strong>公開</strong>　完成したシフト表をアップロードすると、先生が自分のシフトや全体のシフトをWebで確認できます。途中で変わったシフトは「予定」と「実施」を2段で表示し、変更の履歴を残します。<span class="en" lang="en">Publishing: upload the finished plan and teachers can view their own or everyone's schedule online. Later changes show planned vs. actual and are logged.</span></li>
             </ol>
           </div>
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>子育て支援イベントのLINE申込み</h4><p class="en">LINE Booking for Parenting-support Events</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>子育て支援イベントのLINE申込み</h4><p class="en" lang="en">LINE Booking for Parenting-support Events</p></div>
           <div class="work-body">
             <p>月8回ほどの子育て支援イベントに、保護者がいつものLINEから申し込めます。イベントを選ぶと定員と残りの枠が表示され、そのまま申込み。自分の申込みの確認やキャンセルもLINEの中で完結します。</p>
-            <p class="en">Parents book about eight parenting-support events a month right inside LINE: pick an event, see capacity and remaining spots, and apply. They can also check or cancel their own bookings without leaving LINE.</p>
+            <p class="en" lang="en">Parents book about eight parenting-support events a month right inside LINE: pick an event, see capacity and remaining spots, and apply. They can also check or cancel their own bookings without leaving LINE.</p>
             <p>園の側は、予定表のExcelを取り込むだけでイベントを一括登録。参加者一覧や初参加の方の確認、CSV出力、予定表や活動写真の掲示も管理画面から行えます。</p>
-            <p class="en">For staff, importing the schedule spreadsheet registers all events at once; the admin screen lists participants and first-time visitors, exports CSV, and posts schedules and activity photos.</p>
+            <p class="en" lang="en">For staff, importing the schedule spreadsheet registers all events at once; the admin screen lists participants and first-time visitors, exports CSV, and posts schedules and activity photos.</p>
           </div>
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>調理室の食数管理</h4><p class="en">Kitchen Meal-count Manager</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>調理室の食数管理</h4><p class="en" lang="en">Kitchen Meal-count Manager</p></div>
           <div class="work-body">
             <p>各クラスの先生がタブレットやスマホから当日の昼食・おやつの数を入力すると、調理室の画面にすぐ反映されます。アレルギーのあるお子さんの出欠も調理室で確認でき、伝え漏れを防ぎます。職員の給食費の月別集計も自動になり、月末の電卓作業がなくなりました。</p>
-            <p class="en">Class teachers enter the day's lunch and snack counts on a tablet or phone, and the kitchen screen updates immediately. The kitchen can also see whether children with allergies are present, preventing missed messages. Staff meal fees are tallied monthly and automatically.</p>
+            <p class="en" lang="en">Class teachers enter the day's lunch and snack counts on a tablet or phone, and the kitchen screen updates immediately. The kitchen can also see whether children with allergies are present, preventing missed messages. Staff meal fees are tallied monthly and automatically.</p>
           </div>
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>職員会議ダッシュボード</h4><p class="en">Staff Meeting Dashboard</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>職員会議ダッシュボード</h4><p class="en" lang="en">Staff Meeting Dashboard</p></div>
           <div class="work-body">
             <p>会議の次第・資料・事前コメント・議事録を一か所で管理。Word・Excel・PDFの資料をダウンロードせずにタブレットで読め、議事録はPDFで出力できます。</p>
-            <p class="en">Agendas, materials, advance comments and minutes in one place. Word, Excel and PDF files open directly on a tablet, and minutes export to PDF.</p>
+            <p class="en" lang="en">Agendas, materials, advance comments and minutes in one place. Word, Excel and PDF files open directly on a tablet, and minutes export to PDF.</p>
           </div>
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>預かり保育の記録</h4><p class="en">After-hours Childcare Records</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>預かり保育の記録</h4><p class="en" lang="en">After-hours Childcare Records</p></div>
           <div class="work-body">
             <p>預かり保育の利用をかんたんに登録し、月ごとに一覧・集計。これまで使っていたExcelマクロに取り込める形でCSV出力します。</p>
-            <p class="en">Quick entry of extended-care usage with monthly lists and totals, exported as CSV for the existing Excel macro.</p>
+            <p class="en" lang="en">Quick entry of extended-care usage with monthly lists and totals, exported as CSV for the existing Excel macro.</p>
           </div>
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag macro">VBA</span><h4>献立変更・献立評価表の作成</h4><p class="en">Menu Changes &amp; Menu Evaluation Sheets</p></div>
+          <div class="work-head"><span class="tag macro">VBA</span><h4>献立変更・献立評価表の作成</h4><p class="en" lang="en">Menu Changes &amp; Menu Evaluation Sheets</p></div>
           <div class="work-body">
             <div class="links">
               <a class="chip" href="https://youtu.be/B06t2oRYU4g" target="_blank" rel="noopener">説明動画 ↗</a>
@@ -467,7 +494,7 @@
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag macro">VBA</span><h4>献立のコドモン（園務システム）への登録</h4><p class="en">Menu Registration to CoDMON (childcare management system)</p></div>
+          <div class="work-head"><span class="tag macro">VBA</span><h4>献立のコドモン（園務システム）への登録</h4><p class="en" lang="en">Menu Registration to CoDMON (childcare management system)</p></div>
           <div class="work-body">
             <div class="links">
               <a class="chip" href="https://drive.google.com/file/d/1ohVmqZtr3yJ5S5irOPKqJfTVU1rhUQ-3/view?usp=drive_link" target="_blank" rel="noopener">説明書 ↗</a>
@@ -478,38 +505,40 @@
 
       <!-- C社 -->
       <div class="org-block">
-        <div class="org-title"><h3>C社</h3><span class="kind">機械工具商社</span><span class="en inline">Machine Tool Trading</span></div>
+        <div class="org-title"><h3>C社</h3><span class="kind">機械工具商社</span><span class="en inline" lang="en">Machine Tool Trading</span></div>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>受注・仕入データ横断検索（MCPサーバー）</h4><p class="en">Cross-department Order &amp; Purchase Search (MCP Server)</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>AIチャットで社内情報共有（MCPサーバー）</h4><p class="en" lang="en">In-house Knowledge Sharing through an AI Chat (MCP Server)</p></div>
           <div class="work-body">
-            <p>部門ごとに別々のExcelや社内データベースにある受注・仕入データを、社員がいつも使うAI（Claude／ChatGPT）から普通の言葉で検索できる仕組み。読み取り専用で、回答には必ず出典を付けます。</p>
-            <p class="en">Staff can ask their everyday AI assistant in plain language to search order and purchase data scattered across departmental spreadsheets and databases. Read-only, with sources cited in every answer.</p>
+            <p>部門ごとにばらばらに持っていた受注や仕入の情報を、社員だれもが、いつも使っているAI（Claude／ChatGPT）に聞くだけで引き出せるようにしました。「この型番、前はいくらで仕入れた？」と普通の言葉で聞けるので、担当者に聞いて回る手間がなくなります。</p>
+            <p class="en" lang="en">Order and purchase information that each department kept to itself is now something anyone can pull up simply by asking their everyday AI assistant (Claude / ChatGPT) in plain language — no more walking around the office to find the person who knows.</p>
+            <p>元のファイルは読むだけで書き換えず、答えには必ず出典（部門・ファイル・行）を付けます。数字がどこから来たのかを、その場で確かめられます。</p>
+            <p class="en" lang="en">It only reads the original files, never writes to them, and every answer cites its source (department, file, row) so anyone can check where a figure came from.</p>
           </div>
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>取引先EDIへの回答入力の支援（納期・見積）</h4><p class="en">Response Assistant for a Customer EDI (Delivery Dates &amp; Quotations)</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>取引先EDIへの回答入力の支援（納期・見積）</h4><p class="en" lang="en">Response Assistant for a Customer EDI (Delivery Dates &amp; Quotations)</p></div>
           <div class="work-body">
             <p>取引先のWeb受発注システム（EDI）へ返す「納期回答」と「見積回答」の入力を助けます。納期は管理Excelの回答をEDIの画面へ転記し、見積は1万件以上の納品実績から同じ品目の過去の単価を並べて、担当者の価格判断を助けます。</p>
-            <p class="en">Helps staff answer delivery-date and quotation requests in a customer's web EDI: delivery dates are transferred from the management spreadsheet, and for quotes, past unit prices for the same item are pulled from over 10,000 delivery records to support pricing decisions.</p>
+            <p class="en" lang="en">Helps staff answer delivery-date and quotation requests in a customer's web EDI: delivery dates are transferred from the management spreadsheet, and for quotes, past unit prices for the same item are pulled from over 10,000 delivery records to support pricing decisions.</p>
             <p>ブラウザ上で動く方式と、サーバーで専用ブラウザを動かす方式の2種類。入力済みの値は上書きせず、送信ボタンは人が押します。</p>
-            <p class="en">Available as a browser-based and a server-based version. Existing values are never overwritten, and a person presses Submit.</p>
+            <p class="en" lang="en">Available as a browser-based and a server-based version. Existing values are never overwritten, and a person presses Submit.</p>
           </div>
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag macro">VBA</span><h4>受注管理などの社内業務（非公開）</h4><p class="en">Order Management Macro (Private)</p></div>
+          <div class="work-head"><span class="tag macro">VBA</span><h4>受注管理などの社内業務（非公開）</h4><p class="en" lang="en">Order Management Macro (Private)</p></div>
           <div class="work-body"></div>
         </article>
       </div>
 
       <!-- D医療法人 -->
       <div class="org-block">
-        <div class="org-title"><h3>D医療法人</h3><span class="kind">病院</span><span class="en inline">Medical Corporation D (Hospital)</span></div>
+        <div class="org-title"><h3>D医療法人</h3><span class="kind">病院</span><span class="en inline" lang="en">Medical Corporation D (Hospital)</span></div>
 
         <article class="work">
-          <div class="work-head"><span class="tag macro">VBA</span><h4>看護師50名のシフト作成</h4><p class="en">Shift Scheduling for 50 Nurses</p></div>
+          <div class="work-head"><span class="tag macro">VBA</span><h4>看護師50名のシフト作成</h4><p class="en" lang="en">Shift Scheduling for 50 Nurses</p></div>
           <div class="work-body">
             <div class="links">
               <a class="chip" href="https://youtu.be/7G9YAk_frzI" target="_blank" rel="noopener">説明動画 ↗</a>
@@ -519,7 +548,7 @@
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag macro">VBA</span><h4>入院病棟管理料等に係る届出書「様式9」の作成</h4><p class="en">Preparation of “Form No.9” (Ward Management)</p></div>
+          <div class="work-head"><span class="tag macro">VBA</span><h4>入院病棟管理料等に係る届出書「様式9」の作成</h4><p class="en" lang="en">Preparation of “Form No.9” (Ward Management)</p></div>
           <div class="work-body">
             <div class="links">
               <a class="chip" href="https://youtu.be/4zmZYih-Erk" target="_blank" rel="noopener">説明動画 ↗</a>
@@ -529,10 +558,10 @@
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>看護師シフト公開</h4><p class="en">Nurse Shift Viewer</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>看護師シフト公開</h4><p class="en" lang="en">Nurse Shift Viewer</p></div>
           <div class="work-body">
             <p>師長がシフトのExcelをアップロードすると、職員が自分・所属グループ・全体のシフトをブラウザで確認できます。</p>
-            <p class="en">Head nurses upload the shift spreadsheet; staff view their own, their unit's, or the whole schedule in a browser.</p>
+            <p class="en" lang="en">Head nurses upload the shift spreadsheet; staff view their own, their unit's, or the whole schedule in a browser.</p>
           </div>
         </article>
       </div>
@@ -548,7 +577,7 @@
         <div class="label">Career</div>
         <div>
           <h2>本業経営相談概要・経歴</h2>
-          <p class="en">Main Business: Management Consulting Overview</p>
+          <p class="en" lang="en">Main Business: Management Consulting Overview</p>
         </div>
       </div>
 
@@ -557,37 +586,37 @@
           <div class="yr">1997 —</div>
           <div class="ev">
             <h3>東京での経歴</h3>
-            <p class="en">From 1997 – Career in Tokyo</p>
+            <p class="en" lang="en">From 1997 – Career in Tokyo</p>
             <ul>
-              <li>会社経営・起業<span class="en">Company management &amp; entrepreneurship</span></li>
-              <li>（上場・非上場）会社役員<span class="en">Board member (listed &amp; unlisted companies)</span></li>
-              <li>海外起業、経営管理（中国／カンボジア／タイ）<span class="en">Overseas startups &amp; corporate management (China / Cambodia / Thailand)</span></li>
+              <li>会社経営・起業<span class="en" lang="en">Company management &amp; entrepreneurship</span></li>
+              <li>（上場・非上場）会社役員<span class="en" lang="en">Board member (listed &amp; unlisted companies)</span></li>
+              <li>海外起業、経営管理（中国／カンボジア／タイ）<span class="en" lang="en">Overseas startups &amp; corporate management (China / Cambodia / Thailand)</span></li>
             </ul>
             <p>31歳で一人で起業し、後に、共同経営者と日本と中国で社員約500名規模に拡大。学習塾、法律事務所、ITシステム構築、建設、M&amp;Aサービサーなどを経営。上場企業のゴルフメーカーやインディーズ音楽CD流通会社にも経営参加しました。</p>
-            <p class="en">Started solo and expanded with partners to ~500 employees in Japan &amp; China. Operated cram schools, a law office, IT systems firm, construction company, and an M&amp;A servicer; also participated in management of a listed golf manufacturer and a music distribution company.</p>
+            <p class="en" lang="en">Started solo and expanded with partners to ~500 employees in Japan &amp; China. Operated cram schools, a law office, IT systems firm, construction company, and an M&amp;A servicer; also participated in management of a listed golf manufacturer and a music distribution company.</p>
             <p>朝8時から深夜1時まで働く日々が続き、30代は経営修業の毎日でした。多くの先輩経営者から助言をいただき、感謝しています。</p>
-            <p class="en">Worked from 8 a.m. to around 1 a.m. for years—my 30s were a period of learning as a manager, with much gratitude for advice from senior executives.</p>
+            <p class="en" lang="en">Worked from 8 a.m. to around 1 a.m. for years—my 30s were a period of learning as a manager, with much gratitude for advice from senior executives.</p>
             <p>東京の会社が落ち着いた後、海外事業へ投資。中国大連のデータ会社、カンボジアのバッグ工場、ヤマハバイク販売店、タイでの法人設立など。現地語を学び、共感を大事にしてきました。仕事に不十分ですが、フランス語、中国語、タガログ語、カンボジア語は生活言語としては話せます。</p>
-            <p class="en">After stabilizing the Tokyo operations, I invested overseas: a data company in Dalian (China), a bag manufacturing plant in Cambodia, a Yamaha motorcycle dealership, and entity setup in Thailand. I made it a point to learn local languages and value empathy.</p>
+            <p class="en" lang="en">After stabilizing the Tokyo operations, I invested overseas: a data company in Dalian (China), a bag manufacturing plant in Cambodia, a Yamaha motorcycle dealership, and entity setup in Thailand. I made it a point to learn local languages and value empathy.</p>
           </div>
         </li>
         <li class="now">
           <div class="yr">2017 —</div>
           <div class="ev">
             <h3>故郷・福山市での経歴</h3>
-            <p class="en">From 2017 – Career in Fukuyama</p>
+            <p class="en" lang="en">From 2017 – Career in Fukuyama</p>
             <ul>
-              <li>医療法人・社会福祉法人・学校法人の顧問<span class="en">Advisor to medical, social welfare, and educational corporations</span></li>
-              <li>製缶会社 取締役／海外進出支援（フィリピン）<span class="en">Director of a can manufacturer / Overseas expansion support (Philippines)</span></li>
-              <li>機械工具商社 顧問（業務アプリ開発・AI活用）<span class="en">Advisor to a machine tool trading company (business app development &amp; AI adoption)</span></li>
-              <li>地元神社保全NPO法人の設立・運営<span class="en">Founded &amp; managed a local shrine preservation NPO</span></li>
+              <li>医療法人・社会福祉法人・学校法人の顧問<span class="en" lang="en">Advisor to medical, social welfare, and educational corporations</span></li>
+              <li>製缶会社 取締役／海外進出支援（フィリピン）<span class="en" lang="en">Director of a can manufacturer / Overseas expansion support (Philippines)</span></li>
+              <li>機械工具商社 顧問（業務アプリ開発・AI活用）<span class="en" lang="en">Advisor to a machine tool trading company (business app development &amp; AI adoption)</span></li>
+              <li>地元神社保全NPO法人の設立・運営<span class="en" lang="en">Founded &amp; managed a local shrine preservation NPO</span></li>
             </ul>
             <p>病院の依頼で看護シフトのVBAマクロを開発。半年で活用できるようになり、業務改善に貢献しました。以後、商社や地元のこども園などでVBAを活用した改善を実施。</p>
-            <p class="en">At a hospital’s request, I developed a nurse-shift VBA macro and made it effective within six months. Since then, I have implemented Excel/VBA improvements for trading companies and kindergartens.</p>
+            <p class="en" lang="en">At a hospital’s request, I developed a nurse-shift VBA macro and made it effective within six months. Since then, I have implemented Excel/VBA improvements for trading companies and kindergartens.</p>
             <p>ICT化が進む一方で現場リテラシー不足に直面し、導入には苦労しましたが、経営相談に技術支援を組み合わせる意義を実感。</p>
-            <p class="en">While ICT was advancing, on-site literacy lagged; although introduction was challenging, combining management advice with technical support proved valuable.</p>
+            <p class="en" lang="en">While ICT was advancing, on-site literacy lagged; although introduction was challenging, combining management advice with technical support proved valuable.</p>
             <p>医療法人や学校法人のほか、製缶会社では取締役としてフィリピンへの海外進出を、機械工具商社では顧問として業務アプリの開発やAI活用を担当。地元神社の保全NPOを立ち上げ運営しました。</p>
-            <p class="en">In addition to medical and educational corporations, I serve as a director of a can manufacturer leading its overseas expansion to the Philippines, and as an advisor to a machine tool trading company developing business apps and adopting AI. I also founded and managed an NPO for local shrine preservation.</p>
+            <p class="en" lang="en">In addition to medical and educational corporations, I serve as a director of a can manufacturer leading its overseas expansion to the Philippines, and as an advisor to a machine tool trading company developing business apps and adopting AI. I also founded and managed an NPO for local shrine preservation.</p>
           </div>
         </li>
       </ol>
@@ -598,35 +627,35 @@
           <div class="yr">20代 —</div>
           <div class="ev">
             <p>20代からDOS/Windows/Macを使用、初期PCは自作でLinuxとWindowsのデュアルブート。</p>
-            <p class="en">I have used DOS/Windows/Mac since my 20s; my early PCs were self-built with Linux/Windows dual-boot.</p>
+            <p class="en" lang="en">I have used DOS/Windows/Mac since my 20s; my early PCs were self-built with Linux/Windows dual-boot.</p>
           </div>
         </li>
         <li>
           <div class="yr">1996</div>
           <div class="ev">
             <p>実家にLinux＋sambaで家庭内LANをほぼ無料で構築。当時はWindowsで家庭内ランが難しい時代でした。</p>
-            <p class="en">Built a home LAN at my family home using Linux + Samba.</p>
+            <p class="en" lang="en">Built a home LAN at my family home using Linux + Samba.</p>
           </div>
         </li>
         <li>
           <div class="yr">〜2006</div>
           <div class="ev">
             <p>海外出張が多く、メールを読むためにの最初のスマートフォン（PHS）はソニー製で電池が10分でなくなりました。その後はBlackBerryやNokia NシリーズをSIM入替で利用（2006年ころ）。iPhone１に乗り換えて、16まで使っています。</p>
-            <p class="en">I traveled overseas frequently; my first “smartphone” was a Sony PHS device. Later, I used BlackBerry and Nokia N-series phones with SIM swaps (around 2006), then switched to the first iPhone and have used every generation up to the 16.</p>
+            <p class="en" lang="en">I traveled overseas frequently; my first “smartphone” was a Sony PHS device. Later, I used BlackBerry and Nokia N-series phones with SIM swaps (around 2006), then switched to the first iPhone and have used every generation up to the 16.</p>
           </div>
         </li>
         <li>
           <div class="yr">2017 —</div>
           <div class="ev">
             <p>福山へ戻ってからは、病院の看護師シフトをきっかけにExcel VBAマクロで業務改善を始め、商社やこども園にも広げました。</p>
-            <p class="en">After returning to Fukuyama, I began improving operations with Excel VBA macros, starting with nurse shift scheduling at a hospital and later extending to trading companies and a kindergarten.</p>
+            <p class="en" lang="en">After returning to Fukuyama, I began improving operations with Excel VBA macros, starting with nurse shift scheduling at a hospital and later extending to trading companies and a kindergarten.</p>
           </div>
         </li>
         <li class="now">
           <div class="yr">NOW</div>
           <div class="ev">
             <p>AI開発ツール「Claude Code」を使い、Webアプリや業務システムを開発しています。自前のサーバーPCで10本ほどのアプリを常時動かし、Cloudflareを通じて安全に公開・運用しています。</p>
-            <p class="en">I develop web apps and business systems with the AI development tool Claude Code, running about ten apps around the clock on my own server PC and publishing them securely through Cloudflare.</p>
+            <p class="en" lang="en">I develop web apps and business systems with the AI development tool Claude Code, running about ten apps around the clock on my own server PC and publishing them securely through Cloudflare.</p>
           </div>
         </li>
       </ol>
@@ -641,20 +670,20 @@
     <div class="who">
       <p class="nm">早間 央</p>
       <p class="nm-en">HAYAMA NAKABA</p>
-      <p class="rl">ハヤマ商会　代表<span class="en">Representative, Hayama Trading</span></p>
+      <p class="rl">ハヤマ商会　代表<span class="en" lang="en">Representative, Hayama Trading</span></p>
       <a class="mail" href="mailto:nakaba@hayama-si.org">nakaba@hayama-si.org</a>
     </div>
     <div class="edu">
       <h3>学歴 — Education</h3>
       <ol>
-        <li>1968年 福山市鞆町生れ<span class="en">Born 1968 in Tomo, Fukuyama</span></li>
-        <li>鞆幼稚園<span class="en">Tomo Kindergarten</span></li>
-        <li>鞆小中学校<span class="en">Tomo Elementary &amp; Junior High</span></li>
-        <li>誠之館高校<span class="en">Seishikan High School</span></li>
-        <li>東京大学<span class="en">The University of Tokyo</span></li>
+        <li>1968年 福山市鞆町生れ<span class="en" lang="en">Born 1968 in Tomo, Fukuyama</span></li>
+        <li>鞆幼稚園<span class="en" lang="en">Tomo Kindergarten</span></li>
+        <li>鞆小中学校<span class="en" lang="en">Tomo Elementary &amp; Junior High</span></li>
+        <li>誠之館高校<span class="en" lang="en">Seishikan High School</span></li>
+        <li>東京大学<span class="en" lang="en">The University of Tokyo</span></li>
       </ol>
     </div>
-    <footer>© HAYAMA NAKABA — Tomo-no-ura, Fukuyama · 34.38°N 133.38°E</footer>
+    <footer>© Hayama Trading — Fukuyama, Hiroshima</footer>
   </div>
 </section>
 
@@ -666,9 +695,10 @@
       btn.setAttribute('aria-pressed', on ? 'true' : 'false');
       btn.title = on ? '英語を隠す' : '英語を表示';
     }
-    var on = false;
-    try { on = localStorage.getItem('showEn') === '1'; } catch(e){}
-    if (/[?&]lang=en\b/.test(location.search)) on = true;
+    var on = true;
+    try { var v = localStorage.getItem('showEn'); if (v !== null) on = (v === '1'); } catch(e){}
+    if (/[?&]lang=en/.test(location.search)) on = true;
+    if (/[?&]lang=ja/.test(location.search)) on = false;
     apply(on);
     btn.addEventListener('click', function(){
       on = !on; apply(on);
