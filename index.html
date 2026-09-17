@@ -106,6 +106,20 @@ a:hover{
   .divider .en{ display:inline; margin:0; font-size:13px; font-weight:600; color:var(--accent); }
   .title + .divider{ margin-top:14px; }
 
+  /* コンパクト表示（役員就任企業・地域活動） */
+  .compact .divider{ margin:18px 0 2px; }
+  .compact .title + .divider{ margin-top:6px; }
+  .compact .en{ display:inline; margin-left:4px; font-size:13px; }
+  .compact .pill{ padding:1px 10px; font-size:12px; }
+  .roles{ list-style:none; padding-left:0; margin:0; }
+  .roles li{ display:flex; flex-wrap:wrap; align-items:center; gap:2px 10px;
+    margin:0; padding:7px 2px; border-bottom:1px solid var(--line); }
+  .roles li:last-child{ border-bottom:none; }
+  .roles .org{ font-weight:650; }
+  .roles .role{ font-size:12.5px; font-weight:600; padding:0 9px; border-radius:999px;
+    background:color-mix(in srgb, var(--accent) 16%, transparent); }
+  .roles .links{ font-size:13px; }
+
   /* English visibility */
   .en{
     font-size:15px;
@@ -146,40 +160,24 @@ a:hover{
     </section>
 
     <!-- ===== 役員就任企業・地域活動 / Roles & Local Activities ===== -->
-    <section class="card">
+    <section class="card compact">
       <h2 class="title">役員就任企業・地域活動や記録 <span class="en">Board &amp; Advisory Roles, Local Activities</span></h2>
 
-      <!-- 現任 -->
       <div class="divider">現任 <span class="en">Current</span></div>
-
-      <h3>A社（製缶・鋼材加工業）　取締役（現任）<span class="en">Company A (Steel Fabrication) — Director (Present)</span></h3>
-      <ul>
-        <li><span class="small">※概要のみ掲載</span><span class="en">Overview only</span></li>
-        <li>
-          海外進出用企業案内 <span class="en">Company Brochure for Overseas Expansion</span>：
-          <a class="pill" href="https://drive.google.com/file/d/1ndnq2Sa7aZiJ47HDdA7ewmqd7jw06t_4/view?usp=drive_link" target="_blank" rel="noopener">英語ENGLISH</a>
-          <a class="pill" href="https://drive.google.com/file/d/1oDC9nNORNPfWH-tWDwePArJEubmqcKjH/view?usp=drive_link" target="_blank" rel="noopener">タガログ語TAGALOG</a>
-        </li>
+      <ul class="roles">
+        <li><span class="org">A社（製缶・鋼材加工業）</span><span class="role">取締役</span><span class="en">Company A (Steel Fabrication) — Director</span></li>
+        <li><span class="org">B社（学校法人・幼稚園／こども園）</span><span class="role">理事</span><span class="en">Company B (Educational Corporation / Kindergarten) — Director</span></li>
+        <li><span class="org">C社（機械工具商社）</span><span class="role">顧問</span><span class="en">Company C (Machine Tool Trading) — Advisor</span></li>
       </ul>
 
-      <h3>B社（学校法人・幼稚園／こども園）　理事（現任）<span class="en">Company B (Educational Corporation / Kindergarten) — Director (Present)</span></h3>
-
-      <h3>C社（機械工具商社）　顧問（現任）<span class="en">Company C (Machine Tool Trading) — Advisor (Present)</span></h3>
-      <br>
-
-      <!-- 過去（辞任済） -->
       <div class="divider">過去（辞任済） <span class="en">Former</span></div>
-
-      <h3>D医療法人（病院）　顧問（過去）<span class="en">Medical Corporation D (Hospital) — Advisor (Past)</span></h3>
-
-      <h3>E医療法人・社会福祉法人　顧問（過去）<span class="en">Medical Corporation E &amp; Social Welfare Corporation — Advisor (Past)</span></h3>
-      <ul>
-        <li><span class="small">※概要のみ掲載</span><span class="en">Overview only</span></li>
+      <ul class="roles">
+        <li><span class="org">D医療法人（病院）</span><span class="role">顧問</span><span class="en">Medical Corporation D (Hospital) — Advisor</span></li>
+        <li><span class="org">E医療法人・社会福祉法人</span><span class="role">顧問</span><span class="en">Medical Corporation E &amp; Social Welfare Corporation — Advisor</span></li>
       </ul>
-      <br>
-      <!-- 地域活動 -->
-      <h3>地域活動 <span class="en">Local Activities</span></h3>
-      <ul>
+
+      <div class="divider">地域活動 <span class="en">Local Activities</span></div>
+      <ul class="roles">
         <li>鞆町石井 2025秋祭り準備記録 <span class="en">Tomonoura Ishi'i — 2025 Autumn Festival “Chousai” Preparation</span>
           <a class="pill" href="https://www.youtube.com/playlist?list=PLyFgtiJuAOL7JEz_rxyd0gblMguTuURQ-" target="_blank" rel="noopener">説明動画 / Watch video</a>
         </li>
