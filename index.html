@@ -7,7 +7,20 @@
 <style>
   :root{
     color-scheme: light dark;
-    --bg:#0b0c0f; --panel:rgba(255,255,255,.06); --fg:#e9e9ec;
+    --bg:#f7f8fa; --fg:#1d1f24; --muted:#5b616e;
+    --line:rgba(0,0,0,.12); --accent:#1a73e8; --accent-2:#18a86b;
+    --shadow:0 6px 20px rgba(0,0,0,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0b0c0f; --fg:#e9e9ec; --muted:#a3a8b3;
+      --line:rgba(255,255,255,.14); --accent:#7bd6ff; --accent-2:#8fffbe;
+      --shadow:0 8px 24px rgba(0,0,0,.4);
+    }
+  }
+  body{
+    margin:0; background:var(--bg); color:var(--fg); line-height:1.7;
+    font-family: system-ui, "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
   }
   body::before, body::after{
     content:""; position:fixed; inset:-20vmax; z-index:-2;
@@ -38,6 +51,9 @@
   .card h3{ margin:18px 0 8px; font-size:16px; font-weight:650; }
   .small{ font-size:14px; color:var(--muted); }
   ul{ margin:0; padding-left:1.1em; } li{ margin:6px 0; }
+  li > span.small{ display:block; margin-top:2px; }
+  .tag{ display:inline-block; font-size:11px; line-height:1.5; padding:0 7px; margin-right:6px;
+    border:1px solid var(--line); border-radius:999px; color:var(--muted); vertical-align:1px; }
 
   .title{ display:flex; align-items:center; gap:10px; margin:0 0 10px; font-size:20px; font-weight:700; }
   .title::before{ content:""; width:8px; height:20px; border-radius:6px;
@@ -80,9 +96,15 @@ a:hover{
   footer{ margin-top:28px; font-size:12.5px; color:var(--muted); text-align:center; }
 
   .divider{
-    margin:16px 0 8px; font-size:12.5px; color:var(--muted);
-    display:inline-block; padding:4px 8px; border:1px dashed var(--line); border-radius:999px;
+    display:flex; align-items:center; gap:10px;
+    margin:30px 0 4px; font-size:17px; font-weight:700; color:var(--fg);
   }
+  .divider::after{
+    content:""; flex:1; height:2px; border-radius:2px;
+    background:linear-gradient(90deg, var(--accent), transparent);
+  }
+  .divider .en{ display:inline; margin:0; font-size:13px; font-weight:600; color:var(--accent); }
+  .title + .divider{ margin-top:14px; }
 
   /* English visibility */
   .en{
@@ -116,21 +138,21 @@ a:hover{
         <span class="en">Since returning to Fukuyama in 2017, I have worked as an independent advisor and corporate consultant.</span><br>
         ・組織管理、雇用や社員教育、コンプライアンス・新規事業や海外進出のフォローをしています。
         <span class="en">I advise on organization management, hiring and training, new ventures, and overseas expansion.</span><br>
-        ・ICT化の相談も多く、VBAマクロを活用した業務改善をご提案しています。
-        <span class="en">I also handle many ICT consultations and propose process improvements using VBA macros.</span><br>
+        ・ICT化の相談も多く、VBAマクロを活用した業務改善をご提案しています。最近はAI（Claude Code）を使った業務アプリの開発も行っています。
+        <span class="en">I also handle many ICT consultations and propose process improvements using VBA macros, and recently develop business apps with AI (Claude Code).</span><br>
         ・地域企業の顧問や地元でのボランティア活動に取り組み、50歳を期に経済活動は一旦区切りをつけ、地元貢献と個人生活を大切にしています。
         <span class="en">I focus on supporting local businesses and volunteering. I consider my intensive economic activities to have concluded in Tokyo; in Fukuyama I prioritize community contributions and personal life.</span>
       </p>
     </section>
 
-    <!-- ===== 実績/活動（現任→過去） / Works ===== -->
+    <!-- ===== 役員就任企業・地域活動 / Roles & Local Activities ===== -->
     <section class="card">
-      <h2 class="title">顧問先・VBAマクロ・地域活動や記録 <span class="en">Advisory Works & VBA Macro Achievements</span></h2>
+      <h2 class="title">役員就任企業・地域活動や記録 <span class="en">Board &amp; Advisory Roles, Local Activities</span></h2>
 
       <!-- 現任 -->
-      <span class="divider">現任（Current）<span class="en">Current Engagements</span></span>
+      <div class="divider">現任 <span class="en">Current</span></div>
 
-      <h3>剛実鋼材株式会社　顧問（現任）<span class="en">Takemi Kouzai Co., Ltd. — Advisor (Present)</span></h3>
+      <h3>A社（製缶・鋼材加工業）　取締役（現任）<span class="en">Company A (Steel Fabrication) — Director (Present)</span></h3>
       <ul>
         <li><span class="small">※概要のみ掲載</span><span class="en">Overview only</span></li>
         <li>
@@ -140,49 +162,17 @@ a:hover{
         </li>
       </ul>
 
-      <h3>学校法人鞆幼稚園　理事（現任）<span class="en">Tomo Kindergarten — Director (Present)</span></h3>
-      <ul>
-        <li>調理室献立変更・献立評価表作成 マクロ<span class="en">Menu Change Support</span>
-         
-          <a class="pill" href="https://youtu.be/B06t2oRYU4g" target="_blank" rel="noopener">説明動画 / Watch video</a>
-          <a class="pill" href="https://drive.google.com/file/d/119rFqw5crgiIeqGj6o1BwlS9JeoIR8aR/view?usp=drive_link" target="_blank" rel="noopener">説明書</a>
-        
+      <h3>B社（学校法人・幼稚園／こども園）　理事（現任）<span class="en">Company B (Educational Corporation / Kindergarten) — Director (Present)</span></h3>
 
-        </li>
-        <li>献立コドモンへの登録マクロ <span class="en">Menu Change Support</span>       
-          <a class="pill" href="https://drive.google.com/file/d/1ohVmqZtr3yJ5S5irOPKqJfTVU1rhUQ-3/view?usp=drive_link" target="_blank" rel="noopener">説明書</a>
-        </li>
-        <il><a href="https://nakabahayama.github.io/Job_VBA/index2.html">ともっこひろば（子育支援事業）HP</a>
-      </ul>
-
-      <h3>株式会社 重政商店　顧問（現任）<span class="en">Shigemasa Co., Ltd. — Advisor (Present)</span></h3>
-      <ul>
-        <li>社内業務用マクロ（非公開）<span class="en">Order Management Macro (Private)</span></li>
-      </ul>
+      <h3>C社（機械工具商社）　顧問（現任）<span class="en">Company C (Machine Tool Trading) — Advisor (Present)</span></h3>
       <br>
-      
 
       <!-- 過去（辞任済） -->
-      <span class="divider">過去（辞任済） / Former (Resigned)<span class="en">Past Engagements (Resigned)</span></span>
+      <div class="divider">過去（辞任済） <span class="en">Former</span></div>
 
-      <h3>医療法人顧問（過去）<span class="en">Advisor for a Hospital (Past)</span></h3>
-      <ul>
-        <li>50名看護師シフトマクロ <span class="en">Nurse Shift Scheduling</span>
-          
-          <a class="pill" href="https://youtu.be/7G9YAk_frzI" target="_blank" rel="noopener">説明動画 / Watch video</a>
-          <a class="pill" href="https://drive.google.com/file/d/1sl7tw536m7srfe-DgmESKz4g0779BaYb/view?usp=drive_link" target="_blank" rel="noopener">概要と使い方user manual</a>
-        </li>
-        
+      <h3>D医療法人（病院）　顧問（過去）<span class="en">Medical Corporation D (Hospital) — Advisor (Past)</span></h3>
 
-        <li>入院病棟管理料等に係る届出書様式9作成マクロ <span class="en">Preparation of “Form No.9” (Ward Management)</span>
-        
-        <a class="pill" href="https://youtu.be/4zmZYih-Erk" target="_blank" rel="noopener">説明動画 / Watch video</a>
-          <a class="pill" href="https://drive.google.com/file/d/1gCbGQbndrhM4dAxqC3UdGWVemjbImP1b/view?usp=drive_link" target="_blank" rel="noopener">概要と使い方user manual</a>
-        
-          </li>
-      </ul>
-
-      <h3>社会福祉法人・医療法人の顧問（過去）<span class="en">Advisory for an Organization (Past)</span></h3>
+      <h3>E医療法人・社会福祉法人　顧問（過去）<span class="en">Medical Corporation E &amp; Social Welfare Corporation — Advisor (Past)</span></h3>
       <ul>
         <li><span class="small">※概要のみ掲載</span><span class="en">Overview only</span></li>
       </ul>
@@ -207,6 +197,92 @@ a:hover{
         </li>
       </ul>
     </section>
+
+    <!-- ===== VBAマクロ・アプリ開発 / Macros & Apps ===== -->
+    <section class="card">
+      <h2 class="title">VBAマクロ・アプリ開発 <span class="en">VBA Macros &amp; App Development</span></h2>
+      <p class="small">
+        顧問先の病院で、看護師のシフトをExcel VBAマクロで作ったのが始まりです。現在はAI開発ツール「Claude Code」を使い、スマホやタブレットから使えるWebアプリ・業務システムを開発しています。
+        <span class="en">It began with an Excel VBA macro for nurse shifts at a hospital I advised. Today I build web apps and business systems for phones and tablets using the AI development tool Claude Code.</span><br>
+        ログインや送信、価格などの最終判断は人が行い、アプリは下調べ・転記・照合を受け持つ設計を大切にしています。
+        <span class="en">People make the final decisions (logins, submissions, pricing); the apps handle research, transcription and reconciliation.</span>
+      </p>
+
+      <h3>B社（学校法人・幼稚園／こども園）<span class="en">Company B (Educational Corporation / Kindergarten)</span></h3>
+      <ul>
+        <li><span class="tag">アプリ</span>職員シフトの希望登録・自動作成・公開 <span class="en">Staff Shift Requests, Automatic Planning &amp; Publishing</span>
+          <span class="small">シフトづくりの流れを、希望の登録から公開までWebでつなぎました。</span>
+          <span class="en">Connects the whole shift process on the web, from requests to publishing.</span>
+          <span class="small">① 希望登録：先生がスマホやパソコンからカレンダー形式でシフト希望を登録。締切の管理やExcelへの出力にも対応しています。</span>
+          <span class="en">1. Requests: teachers submit shift requests on a calendar from a phone or PC, with deadline management and Excel export.</span>
+          <span class="small">② 自動作成：先生の希望、行事、クラス担任、人員配置のルールを組み合わせて、月のシフト表を自動で作成します。早番・遅番の回り方や日ごとの必要人数など条件が多く、いちばん苦労した部分です。最終調整は担当の先生がExcel上で行います。</span>
+          <span class="en">2. Automatic planning: builds the monthly shift plan from requests, events, class assignments and staffing rules — with many constraints such as early/late rotations and daily staffing levels, this was the hardest part to build. Final adjustments are made in Excel by the teacher in charge.</span>
+          <span class="small">③ 公開：完成したシフト表をアップロードすると、先生が自分のシフトや全体のシフトをWebで確認できます。途中で変わったシフトは「予定」と「実施」を2段で表示し、変更の履歴を残します。</span>
+          <span class="en">3. Publishing: upload the finished plan and teachers can view their own or everyone's schedule online. Later changes show planned vs. actual and are logged.</span>
+        </li>
+        <li><span class="tag">アプリ</span>子育て支援イベントのLINE申込み <span class="en">LINE Booking for Parenting-support Events</span>
+          <span class="small">月8回ほどの子育て支援イベントに、保護者がいつものLINEから申し込めます。イベントを選ぶと定員と残りの枠が表示され、そのまま申込み。自分の申込みの確認やキャンセルもLINEの中で完結します。</span>
+          <span class="en">Parents book about eight parenting-support events a month right inside LINE: pick an event, see capacity and remaining spots, and apply. They can also check or cancel their own bookings without leaving LINE.</span>
+          <span class="small">園の側は、予定表のExcelを取り込むだけでイベントを一括登録。参加者一覧や初参加の方の確認、CSV出力、予定表や活動写真の掲示も管理画面から行えます。</span>
+          <span class="en">For staff, importing the schedule spreadsheet registers all events at once; the admin screen lists participants and first-time visitors, exports CSV, and posts schedules and activity photos.</span>
+        </li>
+        
+        <li><span class="tag">アプリ</span>調理室の食数管理 <span class="en">Kitchen Meal-count Manager</span>
+          <span class="small">各クラスの先生がタブレットやスマホから当日の昼食・おやつの数を入力すると、調理室の画面にすぐ反映されます。アレルギーのあるお子さんの出欠も調理室で確認でき、伝え漏れを防ぎます。職員の給食費の月別集計も自動になり、月末の電卓作業がなくなりました。</span>
+          <span class="en">Class teachers enter the day's lunch and snack counts on a tablet or phone, and the kitchen screen updates immediately. The kitchen can also see whether children with allergies are present, preventing missed messages. Staff meal fees are tallied monthly and automatically.</span>
+        </li>
+        <li><span class="tag">アプリ</span>職員会議ダッシュボード <span class="en">Staff Meeting Dashboard</span>
+          <span class="small">会議の次第・資料・事前コメント・議事録を一か所で管理。Word・Excel・PDFの資料をダウンロードせずにタブレットで読め、議事録はPDFで出力できます。</span>
+          <span class="en">Agendas, materials, advance comments and minutes in one place. Word, Excel and PDF files open directly on a tablet, and minutes export to PDF.</span>
+        </li>
+        <li><span class="tag">アプリ</span>預かり保育の記録 <span class="en">After-hours Childcare Records</span>
+          <span class="small">預かり保育の利用をかんたんに登録し、月ごとに一覧・集計。これまで使っていたExcelマクロに取り込める形でCSV出力します。</span>
+          <span class="en">Quick entry of extended-care usage with monthly lists and totals, exported as CSV for the existing Excel macro.</span>
+        </li>
+        <li><span class="tag">マクロ</span>献立変更・献立評価表の作成<span class="en">Menu Changes &amp; Menu Evaluation Sheets</span>
+          <a class="pill" href="https://youtu.be/B06t2oRYU4g" target="_blank" rel="noopener">説明動画 / Watch video</a>
+          <a class="pill" href="https://drive.google.com/file/d/119rFqw5crgiIeqGj6o1BwlS9JeoIR8aR/view?usp=drive_link" target="_blank" rel="noopener">説明書</a>
+        </li>
+        <li><span class="tag">マクロ</span>献立のコドモン（園務システム）への登録 <span class="en">Menu Registration to CoDMON (childcare management system)</span>
+          <a class="pill" href="https://drive.google.com/file/d/1ohVmqZtr3yJ5S5irOPKqJfTVU1rhUQ-3/view?usp=drive_link" target="_blank" rel="noopener">説明書</a>
+        </li>
+      </ul>
+
+      <h3>C社（機械工具商社）<span class="en">Company C (Machine Tool Trading)</span></h3>
+      <ul>
+        <li><span class="tag">アプリ</span>受注・仕入データ横断検索（MCPサーバー）<span class="en">Cross-department Order &amp; Purchase Search (MCP Server)</span>
+          <span class="small">部門ごとに別々のExcelや社内データベースにある受注・仕入データを、社員がいつも使うAI（Claude／ChatGPT）から普通の言葉で検索できる仕組み。読み取り専用で、回答には必ず出典を付けます。</span>
+          <span class="en">Staff can ask their everyday AI assistant in plain language to search order and purchase data scattered across departmental spreadsheets and databases. Read-only, with sources cited in every answer.</span>
+        </li>
+        <li><span class="tag">アプリ</span>取引先EDIへの回答入力の支援（納期・見積） <span class="en">Response Assistant for a Customer EDI (Delivery Dates &amp; Quotations)</span>
+          <span class="small">取引先のWeb受発注システム（EDI）へ返す「納期回答」と「見積回答」の入力を助けます。納期は管理Excelの回答をEDIの画面へ転記し、見積は1万件以上の納品実績から同じ品目の過去の単価を並べて、担当者の価格判断を助けます。</span>
+          <span class="en">Helps staff answer delivery-date and quotation requests in a customer's web EDI: delivery dates are transferred from the management spreadsheet, and for quotes, past unit prices for the same item are pulled from over 10,000 delivery records to support pricing decisions.</span>
+          <span class="small">ブラウザ上で動く方式と、サーバーで専用ブラウザを動かす方式の2種類。入力済みの値は上書きせず、送信ボタンは人が押します。</span>
+          <span class="en">Available as a browser-based and a server-based version. Existing values are never overwritten, and a person presses Submit.</span>
+        </li>
+        <li><span class="tag">マクロ</span>受注管理などの社内業務（非公開）<span class="en">Order Management Macro (Private)</span></li>
+      </ul>
+      <h3>D医療法人（病院）<span class="en">Medical Corporation D (Hospital)</span></h3>
+      <ul>
+        <li><span class="tag">マクロ</span>看護師50名のシフト作成 <span class="en">Shift Scheduling for 50 Nurses</span>
+          <a class="pill" href="https://youtu.be/7G9YAk_frzI" target="_blank" rel="noopener">説明動画 / Watch video</a>
+          <a class="pill" href="https://drive.google.com/file/d/1sl7tw536m7srfe-DgmESKz4g0779BaYb/view?usp=drive_link" target="_blank" rel="noopener">概要と使い方user manual</a>
+        </li>
+        <li><span class="tag">マクロ</span>入院病棟管理料等に係る届出書「様式9」の作成 <span class="en">Preparation of “Form No.9” (Ward Management)</span>
+          <a class="pill" href="https://youtu.be/4zmZYih-Erk" target="_blank" rel="noopener">説明動画 / Watch video</a>
+          <a class="pill" href="https://drive.google.com/file/d/1gCbGQbndrhM4dAxqC3UdGWVemjbImP1b/view?usp=drive_link" target="_blank" rel="noopener">概要と使い方user manual</a>
+        </li>
+        <li><span class="tag">アプリ</span>看護師シフト公開 <span class="en">Nurse Shift Viewer</span>
+          <span class="small">師長がシフトのExcelをアップロードすると、職員が自分・所属グループ・全体のシフトをブラウザで確認できます。</span>
+          <span class="en">Head nurses upload the shift spreadsheet; staff view their own, their unit's, or the whole schedule in a browser.</span>
+        </li>
+      </ul>
+
+      <p class="small" style="margin-top:18px;">使用技術：Excel VBA ／ Python（Flask）、SQLite、Playwright、MCP、LINE Messaging API、Cloudflare
+        <span class="en">Tech: Excel VBA / Python (Flask), SQLite, Playwright, MCP, LINE Messaging API, Cloudflare</span>
+      </p>
+    </section>
+
     <!-- ===== 本業経営相談概要 / Main Business ===== -->
     <section class="card">
       <h2 class="title">本業経営相談概要 <span class="en">Main Business: Management Consulting Overview</span></h2>
@@ -232,8 +308,11 @@ a:hover{
         <li>医療法人・社会福祉法人・学校法人の顧問
           <span class="en">Advisor to medical, social welfare, and educational corporations</span>
         </li>
-        <li>製造業・商社 顧問／海外進出支援（フィリピン・ベトナム）
-          <span class="en">Advisor to manufacturers & trading companies / Overseas expansion support (Philippines, Vietnam)</span>
+        <li>製缶会社 取締役／海外進出支援（フィリピン）
+          <span class="en">Director of a can manufacturer / Overseas expansion support (Philippines)</span>
+        </li>
+        <li>機械工具商社 顧問（業務アプリ開発・AI活用）
+          <span class="en">Advisor to a machine tool trading company (business app development &amp; AI adoption)</span>
         </li>
         <li>地元神社保全NPO法人の設立・運営
           <span class="en">Founded & managed a local shrine preservation NPO</span>
@@ -244,8 +323,8 @@ a:hover{
         <span class="en">Addendum: At a hospital’s request, I developed a nurse-shift VBA macro and made it effective within six months. Since then, I have implemented Excel/VBA improvements for trading companies and kindergartens.</span><br>
         ICT化が進む一方で現場リテラシー不足に直面し、導入には苦労しましたが、経営相談に技術支援を組み合わせる意義を実感。
         <span class="en">While ICT was advancing, on-site literacy lagged; although introduction was challenging, combining management advice with technical support proved valuable.</span><br>
-        医療法人や学校法人のほか、製缶業の海外進出や流通業のIT構築相談も担当。地元神社の保全NPOを立ち上げ運営しました。
-        <span class="en">In addition to medical and educational corporations, I supported overseas expansion for a can manufacturer and IT buildouts for distributors. I also founded and managed an NPO for local shrine preservation.</span>
+        医療法人や学校法人のほか、製缶会社では取締役としてフィリピンへの海外進出を、機械工具商社では顧問として業務アプリの開発やAI活用を担当。地元神社の保全NPOを立ち上げ運営しました。
+        <span class="en">In addition to medical and educational corporations, I serve as a director of a can manufacturer leading its overseas expansion to the Philippines, and as an advisor to a machine tool trading company developing business apps and adopting AI. I also founded and managed an NPO for local shrine preservation.</span>
       </p>
     </section>
 
@@ -260,7 +339,11 @@ a:hover{
         海外出張が多く、メールを読むためにの最初のスマートフォン（PHS）はソニー製で電池が10分でなくなりました。
         <span class="en">I traveled overseas frequently; my first “smartphone” was a Sony PHS device.</span><br>
         その後はBlackBerryやNokia NシリーズをSIM入替で利用（2006年ころ）。iPhone１に乗り換えて、16まで使っています。
-        <span class="en">Later, I used BlackBerry and Nokia N-series phones with SIM swaps (around 2006).</span>
+        <span class="en">Later, I used BlackBerry and Nokia N-series phones with SIM swaps (around 2006), then switched to the first iPhone and have used every generation up to the 16.</span><br>
+        2017年に福山へ戻ってからは、病院の看護師シフトをきっかけにExcel VBAマクロで業務改善を始め、商社やこども園にも広げました。
+        <span class="en">After returning to Fukuyama in 2017, I began improving operations with Excel VBA macros, starting with nurse shift scheduling at a hospital and later extending to trading companies and a kindergarten.</span><br>
+        現在はAI開発ツール「Claude Code」を使い、Webアプリや業務システムを開発しています。自前のサーバーPCで10本ほどのアプリを常時動かし、Cloudflareを通じて安全に公開・運用しています。
+        <span class="en">Today I develop web apps and business systems with the AI development tool Claude Code, running about ten apps around the clock on my own server PC and publishing them securely through Cloudflare.</span>
       </p>
     </section>
 
@@ -269,7 +352,7 @@ a:hover{
       <h1 class="name-ja">早間 央</h1>
       <div class="name-en">HAYAMA NAKABA</div>
       <div class="role">ハヤマ商会　代表 <span class="en">Representative, Hayama Trading</span></div>
-      <div class="contact">連絡先：<a href="mailto:n.hayama@gmail.com">n.hayama@gmail.com</a>
+      <div class="contact">連絡先：<a href="mailto:nakaba@hayama-si.org">nakaba@hayama-si.org</a>
         <span class="en">Contact</span>
       </div>
       <div style="margin-top:10px">
