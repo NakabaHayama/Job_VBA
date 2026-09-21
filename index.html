@@ -185,7 +185,7 @@
   .rows .go{ font-family:var(--f-mono); font-size:12px; letter-spacing:.06em; color:var(--lantern-ink); text-decoration:none; white-space:nowrap; }
   .rows .go:hover{ text-decoration:underline; }
 
-  /* VBAマクロ・アプリ開発 */
+  /* WEBアプリケーション開発・VBAマクロ */
   .org-block + .org-block{ margin-top:48px; }
   .org-title{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; padding-bottom:12px; border-bottom:2px solid var(--ink); }
   .org-title h3{ font-family:var(--f-display); font-weight:800; font-size:var(--s2); letter-spacing:.03em; }
@@ -286,7 +286,7 @@
     <nav aria-label="ページ内">
       <a href="#creed">理念</a>
       <a href="#roles">役員・地域活動</a>
-      <a href="#works">マクロ・アプリ</a>
+      <a href="#works">アプリ開発・マクロ</a>
       <a href="#career">経歴</a>
       <a href="#contact">連絡先</a>
     </nav>
@@ -384,14 +384,14 @@
     </div>
   </section>
 
-  <!-- ===== VBAマクロ・アプリ開発 ===== -->
+  <!-- ===== WEBアプリケーション開発・VBAマクロ ===== -->
   <section id="works">
     <div class="wrap">
       <div class="sec-head">
-        <div class="label">Macros &amp; Apps</div>
+        <div class="label">Apps &amp; Macros</div>
         <div>
-          <h2>VBAマクロ・アプリ開発</h2>
-          <p class="en" lang="en">VBA Macros &amp; App Development</p>
+          <h2>WEBアプリケーション開発・VBAマクロ</h2>
+          <p class="en" lang="en">Web App Development &amp; VBA Macros</p>
         </div>
         <div class="sec-intro">
           <p>顧問先の病院で、看護師のシフトをExcel VBAマクロで作ったのが始まりです。現在はAI開発ツール「Claude Code」を使い、スマホやタブレットから使えるWebアプリ・業務システムを開発しています。ログインや送信、価格などの最終判断は人が行い、アプリは下調べ・転記・照合を受け持つ設計を大切にしています。</p>
@@ -428,6 +428,16 @@
           <div class="work-body">
             <p>出張や旅行の予定を、日ごとに時間・場所を並べて組み立てられます。作った旅程は一覧で見渡せ、暗証番号を知っている人だけが開ける形で同行者と共有。過去の旅程も残るので、次回の下敷きに使えます。</p>
             <p class="en" lang="en">Builds a trip day by day — times and places in order — then shows the whole itinerary at a glance. It is shared with fellow travelers behind a PIN, and past trips stay on file as a starting point for the next one.</p>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="work-head"><span class="tag app">APP</span><h4>過去資料をAIチャットで検索（MCPサーバー）</h4><p class="en" lang="en">AI Chat Search over Past Documents (MCP Server)</p></div>
+          <div class="work-body">
+            <p>取締役として関わる中で溜まった書類（PDF・Word・Excel・PowerPointなど、あわせて1,700件超）を、AI（Claude／ChatGPT）に聞くだけで検索できるようにしました。ファイルを一つずつ開いて探す手間がなくなります。</p>
+            <p class="en" lang="en">Makes the documents accumulated through my work as a director — PDFs, Word, Excel and PowerPoint files, well over 1,700 in total — searchable simply by asking an AI assistant (Claude / ChatGPT), instead of opening files one by one.</p>
+            <p>元の書類は読むだけで書き換えず、答えには必ず出典（置き場所・フォルダ・ファイル名・ページやシート）を添えます。画像だけのPDFは文字認識（OCR）待ちの扱いとし、見つからなかった場合も「存在しない」と言い切らない設計にしています。</p>
+            <p class="en" lang="en">It only reads the original files and never rewrites them, and every answer cites its source (location, folder, file name, page or sheet). Image-only PDFs are flagged as pending text recognition (OCR), so a document that isn't found is never declared not to exist.</p>
           </div>
         </article>
       </div>
@@ -512,8 +522,10 @@
           <div class="work-body">
             <p>部門ごとにばらばらに持っていた受注や仕入の情報を、社員だれもが、いつも使っているAI（Claude／ChatGPT）に聞くだけで引き出せるようにしました。「この型番、前はいくらで仕入れた？」と普通の言葉で聞けるので、担当者に聞いて回る手間がなくなります。</p>
             <p class="en" lang="en">Order and purchase information that each department kept to itself is now something anyone can pull up simply by asking their everyday AI assistant (Claude / ChatGPT) in plain language — no more walking around the office to find the person who knows.</p>
-            <p>元のファイルは読むだけで書き換えず、答えには必ず出典（部門・ファイル・行）を付けます。数字がどこから来たのかを、その場で確かめられます。</p>
-            <p class="en" lang="en">It only reads the original files, never writes to them, and every answer cites its source (department, file, row) so anyone can check where a figure came from.</p>
+            <p>仕入先別・メーカー別・部門別・型番別の集計やランキング、値上がりした商品の一括検出、部門をまたいで発注している型番の突き合わせなど、AIが数字を自分でまとめて計算する機能も備えました。ファイルやシートをまたいで同じ受注が二重に数えられないよう、注文番号・型番・受注日を照合してから1件にまとめています。</p>
+            <p class="en" lang="en">It also aggregates and ranks data by supplier, maker, department or part number, flags items whose purchase price has jumped, and matches part numbers ordered across multiple departments. Before summarizing, it reconciles entries by order number, part number and order date so the same order is never counted twice across files or sheets.</p>
+            <p>元のファイルは読むだけで書き換えず、答えには必ず出典（部門・ファイル・シート・行）を付けます。数字がどこから来たのかを、その場で確かめられます。</p>
+            <p class="en" lang="en">It only reads the original files, never writes to them, and every answer cites its source (department, file, sheet, row) so anyone can check where a figure came from.</p>
           </div>
         </article>
 
@@ -562,6 +574,21 @@
           <div class="work-body">
             <p>師長がシフトのExcelをアップロードすると、職員が自分・所属グループ・全体のシフトをブラウザで確認できます。</p>
             <p class="en" lang="en">Head nurses upload the shift spreadsheet; staff view their own, their unit's, or the whole schedule in a browser.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- 自分用 -->
+      <div class="org-block">
+        <div class="org-title"><h3>自分用</h3><span class="kind">顧問先横断の資料アーカイブ</span><span class="en inline" lang="en">Personal Cross-client Archive</span></div>
+
+        <article class="work">
+          <div class="work-head"><span class="tag app">APP</span><h4>顧問先資料を横断検索するAIチャット（MCPサーバー）</h4><p class="en" lang="en">Cross-client Document Search via AI Chat (MCP Server)</p></div>
+          <div class="work-body">
+            <p>これまでの顧問先で預かってきた書類（PDF・Word・Excel・PowerPointなど）を、AI（Claude／ChatGPT）に聞くだけで横断検索できる、自分専用のツールです。「あの件の資料、どこだったかな」を、キーワードで探せます。</p>
+            <p class="en" lang="en">A personal tool that makes the documents I have kept across my various advisory roles — PDFs, Word, Excel, PowerPoint files — searchable across all of them at once, simply by asking an AI assistant (Claude / ChatGPT). It turns "where was that file again?" into a keyword search.</p>
+            <p>読み取り専用で、答えには必ず出典（顧問先・フォルダ・ファイル名・ページやシート）を添えます。画像だけのPDFは文字認識（OCR）待ちの扱いとし、見つからなかった場合も「存在しない」と言い切らない設計です。</p>
+            <p class="en" lang="en">It only reads the original files, and every answer cites its source (client, folder, file name, page or sheet). Image-only PDFs are flagged as pending text recognition (OCR), so a document that isn't found is never declared not to exist.</p>
           </div>
         </article>
       </div>
