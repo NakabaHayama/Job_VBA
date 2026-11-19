@@ -221,6 +221,39 @@
   .stack b{ font-weight:500; color:var(--lantern-ink); letter-spacing:.12em; }
   @media (max-width:760px){ .work{ grid-template-columns:1fr; } }
 
+  /* 注目のアプリ */
+  main section.featured{ background:var(--band); color:var(--band-ink); border-bottom:none; position:relative; overflow:hidden; }
+  .featured::before{
+    content:""; position:absolute; left:-24vmax; top:-40vmax; width:80vmax; height:80vmax; pointer-events:none;
+    background:repeating-radial-gradient(circle at center, transparent 0 26px, rgba(233,238,240,.05) 26px 27px);
+    mask-image:radial-gradient(circle at center, #000 0 40%, transparent 70%);
+  }
+  .featured .wrap{ position:relative; }
+  .featured .sec-head .label{ color:var(--lantern); }
+  .featured .sec-intro, .featured .en{ color:var(--band-muted); }
+  .feat-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2.4vw,28px); }
+  @media (max-width:860px){ .feat-grid{ grid-template-columns:1fr; } }
+  .feat{
+    display:flex; flex-direction:column; gap:12px; min-width:0;
+    padding:clamp(20px,2.6vw,30px); border-radius:10px;
+    background:rgba(255,255,255,.045); border:1px solid rgba(255,255,255,.1);
+    border-top:3px solid var(--lantern);
+  }
+  .feat-top{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+  .feat-no{ font-family:var(--f-mono); font-size:12px; letter-spacing:.14em; color:var(--lantern); }
+  .feat-where{ font-size:var(--s-1); color:var(--band-muted); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:2px 10px; }
+  .feat-fr{ font-family:var(--f-display); font-weight:600; font-size:var(--s-1); letter-spacing:.06em; color:var(--lantern); font-style:italic; }
+  .feat h3{ font-family:var(--f-display); font-weight:800; font-size:clamp(1.25rem,2.2vw,var(--s2)); line-height:1.45; letter-spacing:.02em; }
+  .feat .lead{ font-size:.9375rem; line-height:1.8; color:var(--band-ink); }
+  .feat ul{ list-style:none; margin:2px 0 0; padding:0; display:flex; flex-direction:column; gap:8px; }
+  .feat li{ position:relative; padding-left:1.2em; font-size:.9rem; line-height:1.7; color:var(--band-muted); }
+  .feat li::before{ content:""; position:absolute; left:0; top:.7em; width:6px; height:6px; border-radius:50%; background:var(--lantern); }
+  .feat li b{ color:var(--band-ink); font-weight:700; }
+  .feat .langs{ display:flex; flex-wrap:wrap; gap:6px; }
+  .feat .langs span{ font-family:var(--f-mono); font-size:11.5px; padding:3px 9px; border-radius:3px; background:rgba(224,138,46,.16); color:var(--band-ink); }
+  .see{ margin-top:14px; font-size:var(--s-1); color:var(--muted); }
+  .see a{ color:var(--lantern-ink); }
+
   /* 年表 */
   .timeline{ list-style:none; margin:0; padding:0; position:relative; }
   .timeline::before{ content:""; position:absolute; left:6.25rem; top:8px; bottom:8px; width:1px; background:var(--line); }
@@ -286,6 +319,7 @@
     <nav aria-label="ページ内">
       <a href="#creed">理念</a>
       <a href="#roles">役員・地域活動</a>
+      <a href="#featured">注目のアプリ</a>
       <a href="#works">アプリ開発・マクロ</a>
       <a href="#career">経歴</a>
       <a href="#contact">連絡先</a>
@@ -385,6 +419,82 @@
   </section>
 
   <!-- ===== WEBアプリケーション開発・VBAマクロ ===== -->
+  <!-- ===== 注目のアプリ ===== -->
+  <section id="featured" class="featured">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label">Featured</div>
+        <div>
+          <h2>注目のアプリ</h2>
+          <p class="en" lang="en">Featured Projects</p>
+        </div>
+        <div class="sec-intro">
+          <p>つくってきたアプリの中から、とくに力を入れている4つです。</p>
+          <p class="en" lang="en">Four projects I have put the most into.</p>
+        </div>
+      </div>
+
+      <div class="feat-grid">
+        <article class="feat" id="f-passeur">
+          <div class="feat-top"><span class="feat-no">01</span><span class="feat-fr">Le Passeur — 渡し守</span></div>
+          <h3>話すだけで、言葉の壁を渡る<br>ライブ字幕翻訳</h3>
+          <p class="en" lang="en">Live subtitle translation — just speak, and cross the language barrier.</p>
+          <p class="lead">1台のスマホを間に置いて話すと、話している途中から原文と訳文が字幕のように流れます。キーボードは使いません。フィリピンの子会社との打ち合わせ、中国の取引先との商談、会議の記録に使っています。</p>
+          <p class="en" lang="en">Put one phone between two people and talk: the original and the translation flow like subtitles while you are still speaking — no keyboard. Used with the subsidiary in the Philippines, with Chinese business partners, and for meeting records.</p>
+          <div class="langs"><span>日本語⇄タガログ語</span><span>日本語⇄英語</span><span>日本語⇄ベトナム語</span><span>日本語⇄フランス語</span><span>中国語⇄英語</span></div>
+          <ul>
+            <li><b>同時通訳のように</b>　長く話しても文の区切りで小分けにして訳し、たどたどしい話し方でも文が途切れないよう少し待ってから訳します。<span class="en" lang="en">Like simultaneous interpreting: long speech is split at sentence ends, and the app waits a moment so halting speech isn't cut mid-sentence.</span></li>
+            <li><b>会議モード・共有</b>　同じ字幕をパソコンや別のスマホからも見られます。URLはLINEでそのまま送れます。<span class="en" lang="en">Meeting mode and sharing: follow the same subtitles from a PC or another phone; send the link straight through LINE.</span></li>
+            <li><b>読み方つき</b>　中国語にはピンイン、日本語にはローマ字を添えられます。会話は保存して、両方の言葉でダウンロードできます。<span class="en" lang="en">With readings: pinyin for Chinese, romaji for Japanese. Conversations can be saved and downloaded in both languages.</span></li>
+            <li><b>すべての源泉</b>　フランス語が好きで、すべてのアプリにフランス語の名前を付けてきました。Le Passeur は、その原点であり目標でもあるアプリです。<span class="en" lang="en">Where it all leads: I have given every app a French name, and Le Passeur is both the origin and the goal of them all.</span></li>
+          </ul>
+        </article>
+
+        <article class="feat" id="f-portal">
+          <div class="feat-top"><span class="feat-no">02</span><span class="feat-where">A社</span><span class="feat-fr">Ang Bahaginan — 分かち合いの場</span></div>
+          <h3>日本とフィリピンを1つの画面でつなぐ<br>グループポータル</h3>
+          <p class="en" lang="en">A group portal linking Japan and the Philippines on one screen.</p>
+          <p class="lead">日本の本社とフィリピンの子会社が、同じ画面で日々の状況を見られる社内ポータルです。重要連絡、取引先とのメール、入出荷、スタッフの予定、売上、経営の数字を1つのダッシュボードにまとめました。</p>
+          <p class="en" lang="en">An in-house portal where the head office in Japan and the subsidiary in the Philippines see the same picture of each day: announcements, customer correspondence, shipments, staff schedules, sales and the management figures on one dashboard.</p>
+          <ul>
+            <li><b>日英併記</b>　すべての画面が日本語と英語の併記。時刻は両国を並べ、金額はペソと円を併記します（為替は自作アプリから毎日取り込み）。<span class="en" lang="en">Bilingual throughout: times for both countries, amounts in pesos and yen, with rates pulled daily from a companion app.</span></li>
+            <li><b>経営の数字と資金の見通し</b>　試算表・銀行明細・売上台帳を取り込んで損益や月末残高を見える化し、資金が足りなくなりそうなら送金依頼を知らせます。<span class="en" lang="en">Figures and cash outlook: trial balances, bank statements and sales ledgers become profit-and-loss and month-end balances, with an alert when a remittance will be needed.</span></li>
+            <li><b>合意ボード</b>　両社の社長が意見をそろえるため、議題ごとに提案中・協議中・合意の状態と、どちらの返事待ちかが一目でわかります。<span class="en" lang="en">Agreement board: each topic shows whether it is proposed, under discussion or agreed, and whose reply it awaits.</span></li>
+            <li><b>海外のメールも社内で共有</b>　取引先や役所とのメールを翻訳して掲示。機密のものは幹部だけに見せます。<span class="en" lang="en">Correspondence, translated and shared — with confidential items shown to executives only.</span></li>
+          </ul>
+        </article>
+
+        <article class="feat" id="f-mcp">
+          <div class="feat-top"><span class="feat-no">03</span><span class="feat-where">A社・C社・自分用</span><span class="feat-fr">L'Oracle Fidèle — 忠実なる神託者</span></div>
+          <h3>AIに聞けば、会社が答える<br>MCPサーバー</h3>
+          <p class="en" lang="en">Ask the AI, and the company answers — MCP servers.</p>
+          <p class="lead">社内の書類や受注データを、いつも使っているAI（Claude／ChatGPT）に普通の言葉で聞くだけで引き出せるようにしました。「この型番、前はいくらで仕入れた？」「あの件の資料、どこだったかな」に、出典つきで答えます。</p>
+          <p class="en" lang="en">Company documents and order data can be pulled up simply by asking an everyday AI assistant (Claude / ChatGPT) in plain language — "what did we pay for this part last time?", "where was that file?" — with the source cited.</p>
+          <ul>
+            <li><b>C社：受注・仕入・納品計画</b>　部門ごとにばらばらだった受注・仕入の情報を社員が共有。集計やランキング、値上がりの検出、取引先の納品計画から足りなくなりそうな品番や見込み金額まで出します。<span class="en" lang="en">Company C: orders, purchases and forecasts shared across departments — totals, rankings, price-rise detection, and parts likely to run short from the customer's delivery forecast.</span></li>
+            <li><b>A社：書庫</b>　取締役として関わる中で溜まった1,700件を超える書類を検索。<span class="en" lang="en">Company A: over 1,700 documents from my work as a director, searchable.</span></li>
+            <li><b>自分用：顧問先の横断検索</b>　これまでの顧問先の資料を、まとめて横断検索できます。<span class="en" lang="en">Personal: documents from every advisory role, searchable at once.</span></li>
+            <li><b>正確さの決まりごと</b>　元のファイルは読むだけで書き換えません。答えには必ず出典（ファイル・シート・行など）を付け、同じ受注を二重に数えず、見つからないときも「無い」と言い切りません。<span class="en" lang="en">Rules for accuracy: read-only, every answer cites its source, the same order is never counted twice, and "not found" is never stated as "does not exist".</span></li>
+          </ul>
+        </article>
+
+        <article class="feat" id="f-homeai">
+          <div class="feat-top"><span class="feat-no">04</span><span class="feat-where">自宅サーバー</span><span class="feat-fr">La Mémoire — 記憶</span></div>
+          <h3>自宅で動かすAIとアプリ<br>ローカルAI開発</h3>
+          <p class="en" lang="en">AI and apps running at home — local AI development.</p>
+          <p class="lead">自宅のサーバーPCで20本ほどのアプリを常時動かし、Cloudflareを通じて安全に公開しています。さらに、社外秘の資料をChatGPTやClaudeに送らずに扱えるよう、パソコンの中だけで動くAI（Google製のGemma）の開発を進めています。</p>
+          <p class="en" lang="en">About twenty apps run around the clock on my server PC at home, published securely through Cloudflare. I am also developing AI that runs entirely on our own computers (Google's Gemma), so confidential documents never have to be sent to ChatGPT or Claude.</p>
+          <ul>
+            <li><b>社外秘を外に出さない検索チャット</b>　ローカルAIが社内の書類やデータを検索・要約します。外部のAIの力が要る質問だけは、取引先名・人名を記号に置き換えてから考えさせ、答えで元に戻します。<span class="en" lang="en">A search chat that keeps secrets in-house: the local AI searches and summarizes; only questions that need an outside AI are passed on, with customer and personal names replaced by symbols and restored in the answer.</span></li>
+            <li><b>弱点を仕組みで補う</b>　小さなAIは調べずに答えを作ってしまうことがあるため、検索の呼び出しをアプリ側が受け持ち、試験で起きた失敗ごとに対策を重ねています。<span class="en" lang="en">Engineering around weaknesses: small models can invent answers instead of looking things up, so the app handles the search calls itself, with a fix added for each failure seen in testing.</span></li>
+            <li><b>2台目のAIサーバー</b>　ノートPCをローカルAI専用のサーバーに仕立て、会社ごとに資料を混ぜずに検索できる環境を作っています。<span class="en" lang="en">A second AI server: a laptop being turned into a dedicated local-AI server that keeps each company's documents strictly separate.</span></li>
+            <li><b>ローカルAIの相棒</b>　手元のAIだけで動く、Claude Code風のコマンドライン相棒（gemma-CLI）も試作しました。<span class="en" lang="en">A local sidekick: a Claude Code-style command-line assistant (gemma-CLI) that runs on a local model alone.</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="works">
     <div class="wrap">
       <div class="sec-head">
@@ -402,18 +512,7 @@
       <!-- A社 -->
       <div class="org-block">
         <div class="org-title"><h3>A社</h3><span class="kind">製缶・鋼材加工業</span><span class="en inline" lang="en">Company A (Steel Fabrication)</span></div>
-
-        <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>日本とフィリピンをつなぐ社内ポータル</h4><p class="en" lang="en">Bilingual Company Portal Linking Japan and the Philippines</p></div>
-          <div class="work-body">
-            <p>日本の本社と、フィリピンの子会社が、同じ画面で日々の状況を見られるようにした社内ポータルです。重要連絡、取引先とのメール、入出荷、スタッフの予定、売上、経費を1つのダッシュボードにまとめました。</p>
-            <p class="en" lang="en">An in-house portal where the head office in Japan and the subsidiary in the Philippines see the same picture of each day: announcements, correspondence with customers, shipments, staff schedules, sales and expenses on one dashboard.</p>
-            <p>すべての画面が日本語と英語の併記で、見る人によってどちらを主役にするかが入れ替わります。時刻は日本とフィリピンの両方を並べて表示するので、1時間の時差で会議の予定がずれることがありません。金額もペソと円を併記し、為替レートは自作の別アプリから毎日取り込んでいます。</p>
-            <p class="en" lang="en">Every screen carries both Japanese and English, with the reader's own language taking the lead. Times are shown for both countries so the one-hour difference never moves a meeting, and amounts appear in both pesos and yen using rates pulled daily from a small companion app.</p>
-            <p>両社の社長が意見をそろえるための「合意ボード」もあります。議題ごとに、提案中・協議中・合意といった状態と、どちらの返事待ちかが一目でわかります。</p>
-            <p class="en" lang="en">An agreement board helps the two presidents reach a common view: each topic shows its state — proposed, under discussion, agreed — and whose reply it is waiting for.</p>
-          </div>
-        </article>
+        <p class="see">このほか <a href="#f-portal">グループポータル</a>・<a href="#f-passeur">Le Passeur</a>・<a href="#f-mcp">MCPサーバー</a> は「注目のアプリ」で紹介しています。</p>
 
         <article class="work">
           <div class="work-head"><span class="tag app">APP</span><h4>ペソ・ドンの為替レート表示</h4><p class="en" lang="en">Peso &amp; Dong Exchange-rate Watch</p></div>
@@ -432,12 +531,40 @@
         </article>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>過去資料をAIチャットで検索（MCPサーバー）</h4><p class="en" lang="en">AI Chat Search over Past Documents (MCP Server)</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>製缶の工程管理（工程ポータル）</h4><p class="en" lang="en">Fabrication Process Tracker</p></div>
           <div class="work-body">
-            <p>取締役として関わる中で溜まった書類（PDF・Word・Excel・PowerPointなど、あわせて1,700件超）を、AI（Claude／ChatGPT）に聞くだけで検索できるようにしました。ファイルを一つずつ開いて探す手間がなくなります。</p>
-            <p class="en" lang="en">Makes the documents accumulated through my work as a director — PDFs, Word, Excel and PowerPoint files, well over 1,700 in total — searchable simply by asking an AI assistant (Claude / ChatGPT), instead of opening files one by one.</p>
-            <p>元の書類は読むだけで書き換えず、答えには必ず出典（置き場所・フォルダ・ファイル名・ページやシート）を添えます。画像だけのPDFは文字認識（OCR）待ちの扱いとし、見つからなかった場合も「存在しない」と言い切らない設計にしています。</p>
-            <p class="en" lang="en">It only reads the original files and never rewrites them, and every answer cites its source (location, folder, file name, page or sheet). Image-only PDFs are flagged as pending text recognition (OCR), so a document that isn't found is never declared not to exist.</p>
+            <p>CADデータ作成・材料手配・切断・加工（溶接・組立）・塗装・検査・出荷までの進み具合を、工員さんは自分のスマホで1タップで記録し、事務や社長はパソコンで確認できます。日本の本社とフィリピンの子会社の両方で使っています。</p>
+            <p class="en" lang="en">Progress through each step — CAD, material sourcing, cutting, welding and assembly, painting, inspection, shipping — is recorded by workers with one tap on their own phones and checked by the office and the president on a PC. Used at both the head office in Japan and the subsidiary in the Philippines.</p>
+            <p>受注を登録すると、納期から工程ごとの予定日が自動で入ります。予定がずれたら後ろの工程も自動でずれ、元の予定は点線で残るので、遅れの理由を振り返れます。</p>
+            <p class="en" lang="en">Registering an order fills in planned dates for every step from the delivery date. When a step slips, the later steps move with it, and the original plan stays visible as a dotted line so delays can be traced afterwards.</p>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="work-head"><span class="tag app">APP</span><h4>見積依頼メールの受付</h4><p class="en" lang="en">Quote-request Email Intake</p></div>
+          <div class="work-body">
+            <p>お客様から届く見積依頼のメールを読み、案件名・お客様名・ご担当者・期限などの項目を取り出して、見積管理システムに取り込める形にまとめます。担当者が1件ずつ手で打ち込んでいた手間を減らすためのアプリです（試験中）。</p>
+            <p class="en" lang="en">Reads quote-request emails from customers, pulls out the project name, customer, contact person and deadline, and lays them out ready to import into the quotation system — cutting down the one-by-one typing staff used to do (in trial).</p>
+            <p>メールは読むだけで、消したり既読にしたりしません。AIを使うのはボタンを押した1通だけで、空いている項目だけを埋めます。見積システムへの取り込みは人が行います。</p>
+            <p class="en" lang="en">Mail is only read — never deleted or marked as read. AI is used only on the one message a person chooses, and only to fill empty fields. Importing into the quotation system is done by a person.</p>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="work-head"><span class="tag app">APP</span><h4>過去の見積データの保全と、似た見積の検索</h4><p class="en" lang="en">Quotation Archive &amp; Similar-quote Search</p></div>
+          <div class="work-body">
+            <p>外部の見積クラウドサービスの中にしか無かった見積依頼書・図面を、案件ごとのフォルダに分けて社内に保存します。契約が終わってもデータが会社に残るようにするためです。約2年分・3,400件を超える案件の数値データはすでに保全しました。</p>
+            <p class="en" lang="en">Saves the quote requests and drawings that existed only inside an external quotation cloud service into per-project folders on the company's own machines, so the data stays with the company even if the contract ends. The figures for over 3,400 projects from about two years are already secured.</p>
+            <p>見積依頼の文面を貼り付けると、過去の似た見積と値段の目安を並べて出します（AIは使わず、過去の実績だけから探します）。</p>
+            <p class="en" lang="en">Paste in the text of a new request and it lists similar past quotations with a price guide — found from past records alone, without AI.</p>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="work-head"><span class="tag app">APP</span><h4>LINEで送るメッセージの翻訳（日本語⇄タガログ語）</h4><p class="en" lang="en">Message Translator for LINE (Japanese ⇄ Tagalog)</p></div>
+          <div class="work-body">
+            <p>日本語かタガログ語で入力すると、どちら向きかを自動で判定して訳し、そのままLINEで送れます。くだけた言い方と丁寧な言い方を選べ、訳をもう一度日本語に戻した「逆翻訳」で、言いたいことが伝わるかを確かめられます。入力した文はどこにも保存しません。</p>
+            <p class="en" lang="en">Type in Japanese or Tagalog; the app detects the direction, translates, and sends straight to LINE. Choose casual or formal, and check a back-translation to be sure the message says what you meant. Nothing typed is ever saved.</p>
           </div>
         </article>
       </div>
@@ -516,16 +643,31 @@
       <!-- C社 -->
       <div class="org-block">
         <div class="org-title"><h3>C社</h3><span class="kind">機械工具商社</span><span class="en inline" lang="en">Machine Tool Trading</span></div>
+        <p class="see">このほか <a href="#f-mcp">MCPサーバー</a>・<a href="#f-homeai">ローカルAI</a> は「注目のアプリ」で紹介しています。</p>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>AIチャットで社内情報共有（MCPサーバー）</h4><p class="en" lang="en">In-house Knowledge Sharing through an AI Chat (MCP Server)</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>発注残データの日々の差分チェック</h4><p class="en" lang="en">Daily Open-order Change Check</p></div>
           <div class="work-body">
-            <p>部門ごとにばらばらに持っていた受注や仕入の情報を、社員だれもが、いつも使っているAI（Claude／ChatGPT）に聞くだけで引き出せるようにしました。「この型番、前はいくらで仕入れた？」と普通の言葉で聞けるので、担当者に聞いて回る手間がなくなります。</p>
-            <p class="en" lang="en">Order and purchase information that each department kept to itself is now something anyone can pull up simply by asking their everyday AI assistant (Claude / ChatGPT) in plain language — no more walking around the office to find the person who knows.</p>
-            <p>仕入先別・メーカー別・部門別・型番別の集計やランキング、値上がりした商品の一括検出、部門をまたいで発注している型番の突き合わせなど、AIが数字を自分でまとめて計算する機能も備えました。ファイルやシートをまたいで同じ受注が二重に数えられないよう、注文番号・型番・受注日を照合してから1件にまとめています。</p>
-            <p class="en" lang="en">It also aggregates and ranks data by supplier, maker, department or part number, flags items whose purchase price has jumped, and matches part numbers ordered across multiple departments. Before summarizing, it reconciles entries by order number, part number and order date so the same order is never counted twice across files or sheets.</p>
-            <p>元のファイルは読むだけで書き換えず、答えには必ず出典（部門・ファイル・シート・行）を付けます。数字がどこから来たのかを、その場で確かめられます。</p>
-            <p class="en" lang="en">It only reads the original files, never writes to them, and every answer cites its source (department, file, sheet, row) so anyone can check where a figure came from.</p>
+            <p>基幹システムから毎日出力する発注残（注残）のExcelを、画面に1つドラッグ＆ドロップするだけで、前回との違いを「新規」「変化あり」「消込」「取消」に分けて一覧にします。前回のファイルはアプリが覚えているので、土日や休みで日が空いても、そのまま入れれば正しく比べます。</p>
+            <p class="en" lang="en">Drop the day's open-order spreadsheet from the core system onto the screen, and the changes since last time are listed as new, changed, cleared or cancelled. The app remembers the previous file, so it compares correctly even after a weekend or holiday.</p>
+            <p>同じファイルを2回入れても取り込まず、だれが取り込んだかは履歴に残ります。</p>
+            <p class="en" lang="en">The same file is never imported twice, and the history records who imported each one.</p>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="work-head"><span class="tag app">APP</span><h4>事業所ポータル（社員予定・取引価格データベース）</h4><p class="en" lang="en">Branch Portal (Staff Schedules &amp; Price Database)</p></div>
+          <div class="work-body">
+            <p>社員の予定の共有と、取引価格のデータベースを中心にした社内ポータルです。品番・メーカー・仕入先で検索すると、品番ごとの最新の価格と、これまでの価格の動きが見られます。受注の管理Excelや基幹システムの出力を取り込むだけで価格が増えていきます。お知らせの掲示板や、自分の予定・メモを置く個人ページもあります。</p>
+            <p class="en" lang="en">An in-house portal built around shared staff schedules and a database of trading prices. Search by part number, maker or supplier to see the latest price for each part and how it has moved over time; prices grow simply by importing the order spreadsheet and core-system exports. It also has a notice board and personal pages for one's own schedule and notes.</p>
+          </div>
+        </article>
+
+        <article class="work">
+          <div class="work-head"><span class="tag app">APP</span><h4>工程管理アプリの販売用デモ</h4><p class="en" lang="en">Sales Demo of the Process Tracker</p></div>
+          <div class="work-body">
+            <p>A社向けに作った工程管理アプリを、C社が取引先の工場へ紹介・販売するためのデモ版に作り替えました。架空の会社（日本の本社工場とベトナムの工場）を舞台に、材料手配から切断・旋盤・マシニング・熱処理・研削・検査・出荷までの機械加工の工程を体験できます。元の会社の実データ・社名は一切持ち込んでいません。</p>
+            <p class="en" lang="en">The process tracker built for Company A, reworked into a demo that Company C uses to introduce and sell it to its customers' factories. Set in a fictional company with plants in Japan and Vietnam, it walks through machining steps from material sourcing, cutting, turning and machining to heat treatment, grinding, inspection and shipping. No real data or names from the original company were carried over.</p>
           </div>
         </article>
 
@@ -580,20 +722,19 @@
 
       <!-- 自分用 -->
       <div class="org-block">
-        <div class="org-title"><h3>自分用</h3><span class="kind">顧問先横断の資料アーカイブ</span><span class="en inline" lang="en">Personal Cross-client Archive</span></div>
+        <div class="org-title"><h3>自分用</h3><span class="kind">翻訳</span><span class="en inline" lang="en">Personal — Translation</span></div>
+        <p class="see">顧問先の資料の横断検索（<a href="#f-mcp">MCPサーバー</a>）と、<a href="#f-homeai">自宅のAI開発</a> は「注目のアプリ」で紹介しています。</p>
 
         <article class="work">
-          <div class="work-head"><span class="tag app">APP</span><h4>顧問先資料を横断検索するAIチャット（MCPサーバー）</h4><p class="en" lang="en">Cross-client Document Search via AI Chat (MCP Server)</p></div>
+          <div class="work-head"><span class="tag app">APP</span><h4>LINE・Zaloで送るメッセージの翻訳（日本語⇄ベトナム語）</h4><p class="en" lang="en">Message Translator for LINE &amp; Zalo (Japanese ⇄ Vietnamese)</p></div>
           <div class="work-body">
-            <p>これまでの顧問先で預かってきた書類（PDF・Word・Excel・PowerPointなど）を、AI（Claude／ChatGPT）に聞くだけで横断検索できる、自分専用のツールです。「あの件の資料、どこだったかな」を、キーワードで探せます。</p>
-            <p class="en" lang="en">A personal tool that makes the documents I have kept across my various advisory roles — PDFs, Word, Excel, PowerPoint files — searchable across all of them at once, simply by asking an AI assistant (Claude / ChatGPT). It turns "where was that file again?" into a keyword search.</p>
-            <p>読み取り専用で、答えには必ず出典（顧問先・フォルダ・ファイル名・ページやシート）を添えます。画像だけのPDFは文字認識（OCR）待ちの扱いとし、見つからなかった場合も「存在しない」と言い切らない設計です。</p>
-            <p class="en" lang="en">It only reads the original files, and every answer cites its source (client, folder, file name, page or sheet). Image-only PDFs are flagged as pending text recognition (OCR), so a document that isn't found is never declared not to exist.</p>
+            <p>日本語かベトナム語で入力すると、向きを自動で判定して訳します。丁寧さを選ぶと、ベトナム語では相手の呼び方（anh・chị・em など）も変わります。逆翻訳・ニュアンス・単語の意味も表示し、入力した文はどこにも保存しません。</p>
+            <p class="en" lang="en">Type in Japanese or Vietnamese and it detects the direction and translates. Choosing the level of politeness also changes how the other person is addressed in Vietnamese (anh, chị, em…). It shows a back-translation, the nuance and key words, and saves nothing that is typed.</p>
           </div>
         </article>
       </div>
 
-      <p class="stack"><b>STACK</b><span>Excel VBA</span><span>Python / Flask</span><span>SQLite</span><span>Playwright</span><span>MCP</span><span>LINE Messaging API</span><span>Cloudflare</span></p>
+      <p class="stack"><b>STACK</b><span>Excel VBA</span><span>Python / Flask</span><span>SQLite</span><span>Playwright</span><span>MCP</span><span>Claude API</span><span>Gemma（ローカルAI）</span><span>Soniox（音声認識）</span><span>LINE Messaging API</span><span>Cloudflare</span></p>
     </div>
   </section>
 
@@ -681,8 +822,8 @@
         <li class="now">
           <div class="yr">NOW</div>
           <div class="ev">
-            <p>AI開発ツール「Claude Code」を使い、Webアプリや業務システムを開発しています。自前のサーバーPCで10本ほどのアプリを常時動かし、Cloudflareを通じて安全に公開・運用しています。</p>
-            <p class="en" lang="en">I develop web apps and business systems with the AI development tool Claude Code, running about ten apps around the clock on my own server PC and publishing them securely through Cloudflare.</p>
+            <p>AI開発ツール「Claude Code」を使い、Webアプリや業務システムを開発しています。自前のサーバーPCで20本ほどのアプリを常時動かし、Cloudflareを通じて安全に公開・運用しています。社外に出せない資料を扱うため、パソコンの中だけで動くローカルAI（Gemma）の活用も進めています。</p>
+            <p class="en" lang="en">I develop web apps and business systems with the AI development tool Claude Code, running about twenty apps around the clock on my own server PC and publishing them securely through Cloudflare. For documents that must never leave the company, I am also putting a local AI (Gemma) that runs entirely on our own machines to work.</p>
           </div>
         </li>
       </ol>
@@ -697,7 +838,7 @@
     <div class="who">
       <p class="nm">早間 央</p>
       <p class="nm-en">HAYAMA NAKABA</p>
-      <p class="rl">ハヤマ商会　代表<span class="en" lang="en">Representative, Hayama Trading</span></p>
+      <p class="rl">早間商会　代表<span class="en" lang="en">Representative, Hayama Trading</span></p>
       <a class="mail" href="mailto:nakaba@hayama-si.org">nakaba@hayama-si.org</a>
     </div>
     <div class="edu">
